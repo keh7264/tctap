@@ -1,3 +1,31 @@
-<p>
-  faculty works!
-</p>
+<div class="container" *ngIf="show">
+  <h1>Faculty</h1>
+  <div class="card text-center" style="max-width: 18rem;">
+    <div class="card-body">
+      <img class="card-img-top rounded" src="{{ faculty.profile_url }}" />
+      <h4 class="card-title">{{ faculty.name }}</h4>
+      <p class="card-text">{{ faculty.organization }}</p>
+      <p class="card-text">{{ faculty.nation }}</p>
+    </div>
+  </div>
+  <hr />
+  <div>
+    <h5 class="alert alert-info" style="margin: 10px 0 0">SESSION</h5>
+    <ul class="list-group" *ngIf="faculty.session_list.length > 0">
+      <li
+        class="list-group-item"
+        *ngFor="let session of faculty.session_list"
+        routerLink="/program/{{ session.id }}"
+      >
+        <p>
+          {{ session.start_time | date: 'EE dd MMMM, hh:mma' }} ~
+          {{ session.end_time | date: 'hh:mma' }}
+        </p>
+        <p>
+          <strong>{{ session.name }}</strong>
+        </p>
+      </li>
+    </ul>
+    <div *ngIf="faculty.session_list.length <= 0">No results found</div>
+  </div>
+</div>

@@ -12,6 +12,7 @@ export class ProgramComponent implements OnInit {
   session: Session;
   show: boolean = false;
   seeMore: boolean = false;
+
   ngOnInit() {
     this.sessionId = this.route.snapshot.paramMap.get('id');
     this.getSession();
