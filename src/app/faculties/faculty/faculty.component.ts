@@ -1,6 +1,6 @@
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import { httpService } from '../shared/http.service';
+import { httpService } from '../../shared/http.service';
 
 @Component({
   selector: 'app-faculty',
@@ -22,7 +22,6 @@ export class FacultyComponent implements OnInit {
     this.http
       .query('get_faculty_info', { faculty_id: this.facultyId })
       .subscribe(response => {
-        console.log(response);
         this.faculty = response.faculty;
         this.show = true;
       });

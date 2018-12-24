@@ -24,7 +24,6 @@ export class ProgramComponent implements OnInit {
       .query('get_session_info', { session_id: this.sessionId })
       .subscribe(res => {
         this.session = res.session;
-        console.log(this.session);
         this.show = true;
       });
   }

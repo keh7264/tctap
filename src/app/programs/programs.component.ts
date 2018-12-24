@@ -78,12 +78,10 @@ export class ProgramsComponent implements OnInit {
       this.sessionGroupList.forEach((item, index) => {
         item.show = false;
       });
-      console.log(this.sessionGroupList);
     });
   }
 
   onTabClick(tab: TabItem) {
-    console.log(tab);
     this.activeTabIndex = tab.index;
     this.getData({ annual: 2018, date: tab.code });
   }

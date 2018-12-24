@@ -8,8 +8,11 @@ import { MainComponent } from './main/main.component';
 import { ProgramsComponent } from './programs/programs.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DatePipe } from '@angular/common';
-import { FacultyComponent } from './faculty/faculty.component';
+import { FacultyComponent } from './faculties/faculty/faculty.component';
 import { OrderByFacultyPipe } from './shared/order-by-faculty.pipe';
+import { FacultiesComponent } from './faculties/faculties.component';
+import { BoardListComponent } from './faculties/board-list/board-list.component';
+import { ListComponent } from './faculties/list/list.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +21,10 @@ import { OrderByFacultyPipe } from './shared/order-by-faculty.pipe';
     MainComponent,
     ProgramComponent,
     FacultyComponent,
-    OrderByFacultyPipe
+    OrderByFacultyPipe,
+    FacultiesComponent,
+    BoardListComponent,
+    ListComponent
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [httpService, DatePipe, OrderByFacultyPipe],

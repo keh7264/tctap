@@ -1,4 +1,7 @@
-import { FacultyComponent } from './faculty/faculty.component';
+import { BoardListComponent } from './faculties/board-list/board-list.component';
+import { ListComponent } from './faculties/list/list.component';
+import { FacultiesComponent } from './faculties/faculties.component';
+import { FacultyComponent } from './faculties/faculty/faculty.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MainComponent } from './main/main.component';
@@ -8,7 +11,7 @@ import { ProgramComponent } from './programs/program/program.component';
 const routes: Routes = [
   { path: '', redirectTo: '/main', pathMatch: 'full' },
   {
-    path: 'programs',
+    path: 'program/list',
     component: ProgramsComponent
   },
   {
@@ -18,6 +21,18 @@ const routes: Routes = [
   {
     path: 'program/:id',
     component: ProgramComponent
+  },
+  {
+    path: 'faculties',
+    component: FacultiesComponent
+  },
+  {
+    path: 'faculty/list/:id',
+    component: ListComponent
+  },
+  {
+    path: 'faculty/board-list',
+    component: BoardListComponent
   },
   {
     path: 'faculty/:id',
