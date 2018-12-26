@@ -1,3 +1,48 @@
-<p>
-  board-list works!
-</p>
+<div class="container">
+  <ul class="list-group">
+    <ng-container *ngFor="let list of (filteredList | keyvalue)">
+      <hr />
+      <p
+        class="alert alert-info"
+        style="margin: 10px 0 0"
+        *ngIf="list.key === '1'"
+      >
+        Course Directors
+      </p>
+      <p
+        class="alert alert-info"
+        style="margin: 10px 0 0"
+        *ngIf="list.key === '2'"
+      >
+        Course Co-Directors
+      </p>
+      <p
+        class="alert alert-info"
+        style="margin: 10px 0 0"
+        *ngIf="list.key === '3'"
+      >
+        Scientific Committee
+      </p>
+      <p
+        class="alert alert-info"
+        style="margin: 10px 0 0"
+        *ngIf="list.key === '4'"
+      >
+        Honorary Board
+      </p>
+      <hr />
+      <ng-container *ngFor="let faculty of list.value">
+        <li class="list-group-item" routerLink="/faculty/{{ faculty.id }}">
+          <img
+            src="{{ faculty.profile_url }}"
+            class="img-fluid rounded-circle float-left"
+            width="50px"
+          />
+          <p>{{ faculty.name }}</p>
+          <p>{{ faculty.organization }}</p>
+          <p>{{ faculty.nation }}</p>
+        </li>
+      </ng-container>
+    </ng-container>
+  </ul>
+</div>
