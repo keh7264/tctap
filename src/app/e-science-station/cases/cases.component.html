@@ -1,3 +1,59 @@
-<p>
-  cases works!
-</p>
+<div class="container">
+  <h4>Abstracts</h4>
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="basic-addon1">search</span>
+    </div>
+    <input
+      type="text"
+      class="form-control"
+      aria-label="search"
+      aria-describedby="basic-addon1"
+      [(ngModel)]="keyword"
+    />
+  </div>
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <label class="input-group-text" for="categorySelect"
+        >Sort by category</label
+      >
+    </div>
+    <select class="custom-select" id="categorySelect" [(ngModel)]="category">
+      <option value="">All</option>
+      <option
+        value="{{ categoryItem.name }}"
+        *ngFor="let categoryItem of case_category_list"
+        >{{ categoryItem.name }}</option
+      >
+    </select>
+  </div>
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <label class="input-group-text" for="arrageSelect">Arranged by</label>
+    </div>
+    <select class="custom-select" id="arrageSelect" [(ngModel)]="sort">
+      <option value="1">Abstract No.</option>
+      <option value="2">Most Popular</option>
+    </select>
+  </div>
+
+  <ul class="list-group">
+    <li class="list-group-item" *ngFor="let caseItem of case_list">
+      <a routerLink="{{ caseItem.id }}">
+        <strong
+          ><i innerHTML="{{ caseItem.title | highlight: keyword }}"></i
+        ></strong>
+        <br />
+        <span
+          *ngIf="caseItem.author"
+          [innerHTML]="'Author : ' + caseItem.author | highlight: keyword"
+        ></span>
+        <br />
+        <span
+          *ngIf="caseItem.presenter"
+          [innerHTML]="'Presenter : ' + caseItem.presenter | highlight: keyword"
+        ></span>
+      </a>
+    </li>
+  </ul>
+</div>

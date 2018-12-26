@@ -22,4 +22,8 @@ export class AbstractsDetailComponent implements OnInit {
         this.show = true;
       });
   }
+
+  goJACC(url: string) {
+    window.open(url, '_blank');
+  }
 }

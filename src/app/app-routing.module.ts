@@ -1,3 +1,4 @@
+import { AbstractsDetailComponent } from './e-science-station/abstracts/abstracts-detail/abstracts-detail.component';
 import { AbstractsComponent } from './e-science-station/abstracts/abstracts.component';
 import { CasesComponent } from './e-science-station/cases/cases.component';
 import { BoardListComponent } from './faculties/board-list/board-list.component';
@@ -54,7 +55,8 @@ const routes: Routes = [
     path: 'eScienceStation/cases',
     component: CasesComponent
   },
-  { path: 'eScienceStation/abstracts', component: AbstractsComponent }
+  { path: 'eScienceStation/abstracts', component: AbstractsComponent },
+  { path: 'eScienceStation/abstracts/:id', component: AbstractsDetailComponent }
 ];
 
 @NgModule({

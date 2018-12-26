@@ -46,14 +46,14 @@
         <br />
         <span
           *ngIf="abstractItem.author"
-          innerHTML="Author : {{ abstractItem.author | highlight: keyword }}"
+          [innerHTML]="'Author : ' + abstractItem.author | highlight: keyword"
         ></span>
         <br />
         <span
           *ngIf="abstractItem.presenter"
-          innerHTML="Presenter : {{
-            abstractItem.presenter | highlight: keyword
-          }}"
+          [innerHTML]="
+            'Presenter : ' + abstractItem.presenter | highlight: keyword
+          "
         ></span>
       </a>
     </li>
