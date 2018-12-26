@@ -7,6 +7,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { MainComponent } from './main/main.component';
 import { ProgramsComponent } from './programs/programs.component';
 import { ProgramComponent } from './programs/program/program.component';
+import { LectureComponent } from './programs/program/lecture/lecture.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/main', pathMatch: 'full' },
@@ -21,6 +22,10 @@ const routes: Routes = [
   {
     path: 'program/:id',
     component: ProgramComponent
+  },
+  {
+    path: 'lecture/:id',
+    component: LectureComponent
   },
   {
     path: 'faculties',

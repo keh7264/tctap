@@ -13,6 +13,7 @@ import { OrderByFacultyPipe } from './shared/order-by-faculty.pipe';
 import { FacultiesComponent } from './faculties/faculties.component';
 import { BoardListComponent } from './faculties/board-list/board-list.component';
 import { ListComponent } from './faculties/list/list.component';
+import { LectureComponent } from './programs/program/lecture/lecture.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { ListComponent } from './faculties/list/list.component';
     OrderByFacultyPipe,
     FacultiesComponent,
     BoardListComponent,
-    ListComponent
+    ListComponent,
+    LectureComponent
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [httpService, DatePipe, OrderByFacultyPipe],

@@ -1,0 +1,48 @@
+<div class="container" style="padding: 30px;" *ngIf="show">
+  <h1>Lecture</h1>
+  <div class="card text-white bg-dark mb-3">
+    <div class="card-body">
+      <p class="card-text">{{ lecture.group_name }}</p>
+      <h4 class="card-title">{{ lecture.session_name }}</h4>
+      <p class="card-text">
+        {{ lecture.start_time | date: 'EE dd MMMM, hh:mma' }} ~{{
+          lecture.end_time | date: 'hh:mma'
+        }}
+      </p>
+      <p class="card-text">{{ lecture.room }}</p>
+    </div>
+  </div>
+  <hr />
+  <div>
+    <h5 class="alert alert-info" style="margin: 10px 0 0">
+      {{ lecture.name }}
+    </h5>
+    <ng-container *ngIf="lecture && lecture.faculty_list">
+      <ng-container
+        *ngFor="let faculty_list of (lecture.faculty_list | keyvalue)"
+      >
+        <p class="alert alert-dark" style="margin: 10px 0 0">
+          {{ faculty_list.key }}
+        </p>
+        <ul class="list-group">
+          <li
+            *ngFor="let faculty of faculty_list.value"
+            class="list-group-item"
+            routerLink="/faculty/{{ faculty.id }}"
+          >
+            <img
+              src="{{ faculty.profile_url }}"
+              style="width: 50px;"
+              class="img-fluid rounded-circle float-left"
+            />
+            <p>
+              <strong>{{ faculty.name }}</strong>
+            </p>
+            <p>{{ faculty.organization }}</p>
+            <p>{{ faculty.nation }}</p>
+          </li>
+        </ul>
+      </ng-container>
+    </ng-container>
+  </div>
+</div>

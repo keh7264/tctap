@@ -54,6 +54,7 @@
           <li
             class="list-group-item"
             *ngFor="let lecture of subject.lecture_list"
+            routerLink="/lecture/{{ lecture.id }}"
           >
             <i>{{ lecture.name }}</i
             ><br />
