@@ -44,26 +44,32 @@
           </li>
         </ng-container>
       </ng-container>
-      <h6 class="alert alert-info" style="margin: 10px 0 0">PRESENTATION</h6>
-      <ul class="list-group" *ngIf="subject.lecture_list">
-        <li
-          class="list-group-item"
-          *ngFor="let lecture of subject.lecture_list"
-        >
-          <i>{{ lecture.name }}</i
-          ><br />
-          <p>
-            {{ lecture.start_time | date: 'EE dd MMMM, hh:mma' }} ~{{
-              lecture.end_time | date: 'hh:mma'
-            }}
-            <br />
-            <span *ngIf="lecture.faculty_list[0]">
-              {{ lecture.faculty_list[0].type }} :
-              {{ lecture.faculty_list[0].name }}</span
-            >
-          </p>
-        </li>
-      </ul>
+      <div
+        *ngIf="
+          subject && subject.lecture_list && subject.lecture_list.length > 0
+        "
+      >
+        <h6 class="alert alert-info" style="margin: 10px 0 0">PRESENTATION</h6>
+        <ul class="list-group">
+          <li
+            class="list-group-item"
+            *ngFor="let lecture of subject.lecture_list"
+          >
+            <i>{{ lecture.name }}</i
+            ><br />
+            <p>
+              {{ lecture.start_time | date: 'EE dd MMMM, hh:mma' }} ~{{
+                lecture.end_time | date: 'hh:mma'
+              }}
+              <br />
+              <span *ngIf="lecture.faculty_list[0]">
+                {{ lecture.faculty_list[0].type }} :
+                {{ lecture.faculty_list[0].name }}</span
+              >
+            </p>
+          </li>
+        </ul>
+      </div>
     </ul>
   </div>
 </div>
