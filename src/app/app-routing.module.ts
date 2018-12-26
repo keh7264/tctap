@@ -1,3 +1,5 @@
+import { AbstractsComponent } from './e-science-station/abstracts/abstracts.component';
+import { CasesComponent } from './e-science-station/cases/cases.component';
 import { BoardListComponent } from './faculties/board-list/board-list.component';
 import { ListComponent } from './faculties/list/list.component';
 import { FacultiesComponent } from './faculties/faculties.component';
@@ -8,6 +10,7 @@ import { MainComponent } from './main/main.component';
 import { ProgramsComponent } from './programs/programs.component';
 import { ProgramComponent } from './programs/program/program.component';
 import { LectureComponent } from './programs/program/lecture/lecture.component';
+import { EScienceStationComponent } from './e-science-station/e-science-station.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/main', pathMatch: 'full' },
@@ -42,7 +45,16 @@ const routes: Routes = [
   {
     path: 'faculty/:id',
     component: FacultyComponent
-  }
+  },
+  {
+    path: 'eScienceStation',
+    component: EScienceStationComponent
+  },
+  {
+    path: 'eScienceStation/cases',
+    component: CasesComponent
+  },
+  { path: 'eScienceStation/abstracts', component: AbstractsComponent }
 ];
 
 @NgModule({
