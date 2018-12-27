@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">{{ abstractItem.no }}{{ abstractItem.title }}</h5>
+      <hr />
+      <p class="card-text" *ngIf="abstractItem.author">
+        Author : {{ abstractItem.author }}
+      </p>
+      <p class="card-text" *ngIf="abstractItem.presenter">
+        Presenter : {{ abstractItem.presenter }}
+      </p>
+    </div>
+  </div>
+  <div style="text-align: center; margin-top: 30px;">
+    <button type="button" class="btn btn-danger">
+      Like {{ abstractItem.likeit_cnt }}
+    </button>
+    <button type="button" class="btn btn-info" id="jacc">JACC</button>
+  </div>
+  <div class="card" style="margin-top: 30px;">
+    <div class="card-body">{{ abstractItem.description }}</div>
+  </div>
+</div>

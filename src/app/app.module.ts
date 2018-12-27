@@ -6,7 +6,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AbstractsDetailComponent } from './e-science-station/abstracts/abstracts-detail/abstracts-detail.component';
+import { AbstractDetailComponent } from './e-science-station/abstracts/abstract-detail/abstract-detail.component';
 import { AbstractsComponent } from './e-science-station/abstracts/abstracts.component';
 import { CasesComponent } from './e-science-station/cases/cases.component';
 import { EScienceStationComponent } from './e-science-station/e-science-station.component';
@@ -20,6 +20,8 @@ import { ProgramComponent } from './programs/program/program.component';
 import { ProgramsComponent } from './programs/programs.component';
 import { httpService } from './shared/http.service';
 import { OrderByFacultyPipe } from './shared/order-by-faculty.pipe';
+import { CaseDetailComponent } from './e-science-station/cases/case-detail/case-detail.component';
+import { FeaturedResearchComponent } from './e-science-station/featured-research/featured-research.component';
 
 @NgModule({
   declarations: [
@@ -36,8 +38,10 @@ import { OrderByFacultyPipe } from './shared/order-by-faculty.pipe';
     EScienceStationComponent,
     AbstractsComponent,
     CasesComponent,
-    AbstractsDetailComponent,
-    HighlightKeywordPipe
+    AbstractDetailComponent,
+    HighlightKeywordPipe,
+    CaseDetailComponent,
+    FeaturedResearchComponent
   ],
   imports: [
     BrowserModule,

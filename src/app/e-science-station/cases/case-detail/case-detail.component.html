@@ -1,0 +1,30 @@
+<div class="container" *ngIf="show && caseItem">
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">{{ caseItem.no }}{{ caseItem.title }}</h5>
+      <hr />
+      <p class="card-text" *ngIf="caseItem.author">
+        Author : {{ caseItem.author }}
+      </p>
+      <p class="card-text" *ngIf="caseItem.presenter">
+        Presenter : {{ caseItem.presenter }}
+      </p>
+    </div>
+  </div>
+  <div style="text-align: center; margin-top: 30px;">
+    <button type="button" class="btn btn-danger">
+      Like {{ caseItem.likeit_cnt }}
+    </button>
+    <button
+      *ngIf="caseItem.jacc"
+      type="button"
+      class="btn btn-info"
+      (click)="goJACC(caseItem.jacc)"
+    >
+      JACC
+    </button>
+  </div>
+  <div class="card" style="margin-top: 30px;">
+    <div class="card-body" innerHTML="{{ caseItem.description }}"></div>
+  </div>
+</div>

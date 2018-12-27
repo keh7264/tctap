@@ -54,6 +54,8 @@
           [innerHTML]="'Presenter : ' + caseItem.presenter | highlight: keyword"
         ></span>
       </a>
+      <input type="checkbox" [checked]="caseItem.is_likeit" />
+      {{ caseItem.likeit_cnt }}
     </li>
   </ul>
 </div>

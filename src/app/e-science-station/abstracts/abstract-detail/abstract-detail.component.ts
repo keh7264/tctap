@@ -3,11 +3,11 @@ import { httpService } from './../../../shared/http.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-abstracts-detail',
-  templateUrl: './abstracts-detail.component.html',
-  styleUrls: ['./abstracts-detail.component.scss']
+  selector: 'app-abstract-detail',
+  templateUrl: './abstract-detail.component.html',
+  styleUrls: ['./abstract-detail.component.scss']
 })
-export class AbstractsDetailComponent implements OnInit {
+export class AbstractDetailComponent implements OnInit {
   abstractItem: any;
   abstractId: string;
   show: boolean = false;
