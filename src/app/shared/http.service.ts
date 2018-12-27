@@ -18,7 +18,7 @@ const headers = new HttpHeaders({
 @Injectable()
 export class httpService {
   constructor(private http: HttpClient) {}
-  query(url, params) {
+  query(url, params = {}) {
     let httpOptions = {
       headers,
       params: params

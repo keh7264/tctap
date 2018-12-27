@@ -22,6 +22,7 @@ import { httpService } from './shared/http.service';
 import { OrderByFacultyPipe } from './shared/order-by-faculty.pipe';
 import { CaseDetailComponent } from './e-science-station/cases/case-detail/case-detail.component';
 import { FeaturedResearchComponent } from './e-science-station/featured-research/featured-research.component';
+import { LiveAndVodComponent } from './live-and-vod/live-and-vod.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { FeaturedResearchComponent } from './e-science-station/featured-research
     AbstractDetailComponent,
     HighlightKeywordPipe,
     CaseDetailComponent,
-    FeaturedResearchComponent
+    FeaturedResearchComponent,
+    LiveAndVodComponent
   ],
   imports: [
     BrowserModule,

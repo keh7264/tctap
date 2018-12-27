@@ -40,6 +40,7 @@
             *ngIf="i === 0 || seeMore || (i === 1 && id < 3)"
             routerLink="/faculty/{{ faculty.id }}"
           >
+            <img [src]="faculty.profile_url" width="30px" height="30px" />
             {{ faculty.name }}
           </li>
         </ng-container>

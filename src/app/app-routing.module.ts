@@ -1,3 +1,4 @@
+import { LiveAndVodComponent } from './live-and-vod/live-and-vod.component';
 import { CaseDetailComponent } from './e-science-station/cases/case-detail/case-detail.component';
 import { AbstractDetailComponent } from './e-science-station/abstracts/abstract-detail/abstract-detail.component';
 import { AbstractsComponent } from './e-science-station/abstracts/abstracts.component';
@@ -61,7 +62,8 @@ const routes: Routes = [
     path: 'eScienceStation/abstracts/:id',
     component: AbstractDetailComponent
   },
-  { path: 'eScienceStation/cases/:id', component: CaseDetailComponent }
+  { path: 'eScienceStation/cases/:id', component: CaseDetailComponent },
+  { path: 'liveAndVod', component: LiveAndVodComponent }
 ];
 
 @NgModule({
