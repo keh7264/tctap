@@ -1,3 +1,4 @@
+import { TctapService } from './../shared/tctap.service';
 import { Router } from '@angular/router';
 import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
@@ -17,7 +18,8 @@ export class ProgramsComponent implements OnInit {
   constructor(
     private http: httpService,
     private datePipe: DatePipe,
-    private router: Router
+    private router: Router,
+    private tctap: TctapService
   ) {}
 
   sessionGroupList: any;
@@ -63,6 +65,7 @@ export class ProgramsComponent implements OnInit {
   ngOnInit() {
     this.setTodayId();
     this.getData();
+    this.tctap.setHeaderTitle('Program');
   }
 
   private setTodayId() {
@@ -73,11 +76,12 @@ export class ProgramsComponent implements OnInit {
 
   getData(params: any = { annual: 2018 }) {
     this.http.query('get_session_list', params).subscribe(res => {
-      this.sessionGroupList = res.session_group_list;
-
-      this.sessionGroupList.forEach((item, index) => {
-        item.show = false;
-      });
+      if (res && res.session_group_list) {
+        this.sessionGroupList = res.session_group_list;
+        this.sessionGroupList.forEach((item, index) => {
+          item.show = false;
+        });
+      }
     });
   }
 
@@ -87,10 +91,14 @@ export class ProgramsComponent implements OnInit {
   }
 
   onProgramClick(group: any) {
-    this.sessionGroupList.forEach(item => {
-      item.show = false;
-    });
-    group.show = true;
+    if (group.show) {
+      group.show = !group.show;
+    } else {
+      this.sessionGroupList.forEach(item => {
+        item.show = false;
+      });
+      group.show = true;
+    }
   }
 
   goProgramDetail(groupId: string) {

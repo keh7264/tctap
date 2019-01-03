@@ -23,6 +23,8 @@ import { OrderByFacultyPipe } from './shared/order-by-faculty.pipe';
 import { CaseDetailComponent } from './e-science-station/cases/case-detail/case-detail.component';
 import { FeaturedResearchComponent } from './e-science-station/featured-research/featured-research.component';
 import { LiveAndVodComponent } from './live-and-vod/live-and-vod.component';
+import { HeaderComponent } from './core/header/header.component';
+import { FooterComponent } from './core/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +45,9 @@ import { LiveAndVodComponent } from './live-and-vod/live-and-vod.component';
     HighlightKeywordPipe,
     CaseDetailComponent,
     FeaturedResearchComponent,
-    LiveAndVodComponent
+    LiveAndVodComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

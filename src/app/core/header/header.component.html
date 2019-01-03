@@ -1,0 +1,20 @@
+<nav
+  class="top_titleArea navbar navbar-default navbar-fixed-top"
+  *ngIf="type === 'default'"
+>
+  <div class="container">
+    <div class="position_left"><a href="#" class="backLink">back</a></div>
+    <h2>{{ title | titlecase }}</h2>
+    <div class="position_right"><a href="#" class="search">search</a></div>
+  </div>
+</nav>
+<nav
+  class="top_titleArea navbar navbar-default navbar-fixed-top"
+  *ngIf="type === 'main'"
+>
+  <div class="container">
+    <div class="position_left"><a href="#" class="login">login</a></div>
+    <h1 class="text-hide">TCTAP 2019</h1>
+    <div class="position_right"><a href="#" class="inform">inform</a></div>
+  </div>
+</nav>
