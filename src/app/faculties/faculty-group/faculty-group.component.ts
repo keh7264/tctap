@@ -1,3 +1,4 @@
+import { TctapService } from './../../shared/tctap.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,10 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./faculty-group.component.scss']
 })
 export class FacultyGroupComponent implements OnInit {
-
-  constructor() { }
+  constructor(private tctap: TctapService) {}
 
   ngOnInit() {
+    this.tctap.setHeaderTitle('Faculty');
   }
-
 }

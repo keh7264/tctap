@@ -17,27 +17,5 @@ export class AppComponent implements OnInit {
     private router: Router
   ) {}
 
-  ngOnInit() {
-    this.router.events
-      .pipe(
-        filter(event => event instanceof NavigationEnd),
-        map(() => {
-          let child = this.route.firstChild;
-          while (child) {
-            if (child.firstChild) {
-              child = child.firstChild;
-            } else if (child.snapshot.data && child.snapshot.data.title) {
-              return child.snapshot.data.title;
-            } else {
-              return null;
-            }
-          }
-          return null;
-        })
-      )
-      .subscribe(title => {
-        console.log(title);
-        this.tctap.setHeaderTitle(title);
-      });
-  }
+  ngOnInit() {}
 }

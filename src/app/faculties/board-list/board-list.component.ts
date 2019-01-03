@@ -1,3 +1,4 @@
+import { TctapService } from 'src/app/shared/tctap.service';
 import { httpService } from './../../shared/http.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -9,14 +10,15 @@ import { Component, OnInit } from '@angular/core';
 export class BoardListComponent implements OnInit {
   filteredList: any;
 
-  constructor(private http: httpService) {}
+  constructor(private tctap: TctapService) {}
 
   ngOnInit() {
+    this.tctap.setHeaderTitle('Board Members');
     this.getData();
   }
 
   getData() {
-    this.http
+    this.tctap
       .query('get_faculty_list', { group_id: 10, annual: '2018' })
       .subscribe(response => {
         this.filteredList = response.filteredList;

@@ -1,75 +1,74 @@
-<div class="container" style="padding: 30px;" *ngIf="show">
-  <h1>Session</h1>
-
-  <div class="card text-white bg-dark mb-3">
-    <div class="card-body">
-      <p class="card-text">
-        <strong>{{ session.group_name }}</strong>
-      </p>
-      <h4 class="card-title">{{ session.name }}</h4>
-      <p class="card-text">{{ session.subtitle }}</p>
-      <p class="card-text">
-        {{ session.start_time | date: 'EE dd MMMM, hh:mma' }} ~
-        {{ session.end_time | date: 'hh:mma' }}
-      </p>
-      <p class="card-text">{{ session.room }}</p>
+<section class="body_contentsArea back_blue" *ngIf="show && session">
+  <div class="state_view">
+    <p class="attach gray">{{ session.group_name }}</p>
+    <div class="title_inline">
+      <p class="tit">{{ session.name }}</p>
+      <button
+        class="question"
+        *ngIf="session && session.is_question === 'y'"
+      ></button>
+      <button type="button" class="bookmark">bookmark</button>
     </div>
+    <p class="attach lblue">{{ session.subtitle }}</p>
+    <p class="info time">
+      {{ session.start_time | date: 'EE dd MMMM, hh:mma' }} ~
+      {{ session.end_time | date: 'hh:mma' }}
+    </p>
+    <p class="info area">{{ session.room }}</p>
   </div>
-  <div>
-    <button *ngIf="session && session.is_question === 'y'">Question</button>
-  </div>
-  <div>
-    <ul class="list-group" *ngFor="let subject of session.subject_list">
-      <div
-        class="alert alert-danger"
-        style="margin: 10px 0 0"
-        *ngIf="subject.name"
-      >
-        <strong>{{ subject.name }}</strong>
-      </div>
+  <div class="group_whiteBox">
+    <dl *ngFor="let subject of session.subject_list">
+      <p class="paragraph_blue" *ngIf="subject.name">{{ subject.name }}</p>
       <ng-container
         *ngFor="
           let typeList of (subject.faculty_list | keyvalue | orderByFaculty);
           let i = index
         "
       >
-        <h6 class="alert alert-info" style="margin: 10px 0 0">
-          {{ typeList.key | uppercase }}
-        </h6>
-        <ng-container *ngFor="let faculty of typeList.value; let id = index">
-          <li class="list-group-item" routerLink="/faculty/{{ faculty.id }}">
-            <img [src]="faculty.profile_url" width="30px" height="30px" />
-            {{ faculty.name }}
-          </li>
-        </ng-container>
+        <dt>
+          <span class="tit">{{ typeList.key | uppercase }}</span
+          ><!-- moderator/discussant.. -->
+          <button type="button" class="more up"><span>more</span></button>
+        </dt>
+        <dd class="styleList_addRignt">
+          <ul class="styleBox">
+            <li *ngFor="let faculty of typeList.value; let id = index">
+              <a routerLink="/faculty/{{ faculty.id }}" class="addLeft">
+                <span class="photo">
+                  <img
+                    src="assets/img/people01.png"
+                    *ngIf="!faculty.profile_url"
+                  />
+                  <img
+                    [src]="faculty.profile_url"
+                    *ngIf="!!faculty.profile_url"
+                  />
+                </span>
+                <span class="title">{{ faculty.name }}</span>
+              </a>
+              <button type="button" class="bookmark">bookmark</button>
+              <!--<button type="button" class="bookmark on">bookmark</button>-->
+            </li>
+          </ul>
+        </dd>
       </ng-container>
-      <div
-        *ngIf="
-          subject && subject.lecture_list && subject.lecture_list.length > 0
-        "
-      >
-        <h6 class="alert alert-info" style="margin: 10px 0 0">PRESENTATION</h6>
-        <ul class="list-group">
-          <li
-            class="list-group-item"
-            *ngFor="let lecture of subject.lecture_list"
-            routerLink="lecture/{{ lecture.id }}"
-          >
-            <i>{{ lecture.name }}</i
-            ><br />
-            <p>
-              {{ lecture.start_time | date: 'EE dd MMMM, hh:mma' }} ~{{
-                lecture.end_time | date: 'hh:mma'
-              }}
-              <br />
-              <span *ngIf="lecture.faculty_list[0]">
-                {{ lecture.faculty_list[0].type }} :
-                {{ lecture.faculty_list[0].name }}</span
-              >
-            </p>
+      <dt><span class="tit">PRESENTATION</span></dt>
+      <dd class="styleList_addRignt">
+        <ul class="styleBox">
+          <li *ngFor="let lecture of subject.lecture_list">
+            <a class="full" routerLink="lecture/{{ lecture.id }}"
+              ><span class="title">{{ lecture.name }}</span>
+              <p class="info time">
+                {{ lecture.start_time | date: 'EE dd MMMM, hh:mma' }} ~{{
+                  lecture.end_time | date: 'hh:mma'
+                }}
+              </p>
+              <p class="info area">{{ lecture.room }}</p>
+            </a>
+            <button type="button" class="bookmark on">bookmark</button>
           </li>
         </ul>
-      </div>
-    </ul>
+      </dd>
+    </dl>
   </div>
-</div>
+</section>
