@@ -1,0 +1,13 @@
+<div class="container">
+  <h3>Live & VOD</h3>
+  <ul class="list-group">
+    <li
+      *ngFor="let room of roomList"
+      class="list-group-item"
+      (click)="onRoomClick(room)"
+    >
+      {{ room.name }}
+    </li>
+    <li class="list-group-item">Video On Demand</li>
+  </ul>
+</div>

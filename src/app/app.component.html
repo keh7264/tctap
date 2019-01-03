@@ -1,1 +1,19 @@
+<nav class="top_titleArea navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="position_left"><a href="#" class="login">login</a></div>
+    <h1 class="text-hide">TCTAP 2019</h1>
+    <div class="position_right"><a href="#" class="inform">inform</a></div>
+  </div>
+</nav>
 <router-outlet></router-outlet>
+<nav class="bottom_tabArea navbar navbar-default navbar-fixed-bottom">
+  <ul class="align_between">
+    <li class="home" routerLinkActive="on"><a routerLink="/main">Home</a></li>
+    <li class="program" routerLinkActive="on">
+      <a routerLink="/program/list"> Program </a>
+    </li>
+    <li class="search" routerLinkActive="on"><a href="#"> Search </a></li>
+    <li class="schedule" routerLinkActive="on"><a href="#"> Schedule </a></li>
+    <li class="more" routerLinkActive="on"><a href="/more"> More </a></li>
+  </ul>
+</nav>

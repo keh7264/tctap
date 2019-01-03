@@ -15,7 +15,9 @@
       <p class="card-text">{{ session.room }}</p>
     </div>
   </div>
-  <div><button *ngIf="session.is_question === 'y'">Question</button></div>
+  <div>
+    <button *ngIf="session && session.is_question === 'y'">Question</button>
+  </div>
   <div>
     <ul class="list-group" *ngFor="let subject of session.subject_list">
       <div
@@ -35,11 +37,7 @@
           {{ typeList.key | uppercase }}
         </h6>
         <ng-container *ngFor="let faculty of typeList.value; let id = index">
-          <li
-            class="list-group-item"
-            *ngIf="i === 0 || seeMore || (i === 1 && id < 3)"
-            routerLink="/faculty/{{ faculty.id }}"
-          >
+          <li class="list-group-item" routerLink="/faculty/{{ faculty.id }}">
             <img [src]="faculty.profile_url" width="30px" height="30px" />
             {{ faculty.name }}
           </li>

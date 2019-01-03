@@ -1,39 +1,38 @@
-<div class="container">
-  <h2 style="padding: 30px 0">Program</h2>
-  <div>
-    <ul class="nav nav-tabs">
+<section class="body_contentsArea back_gray">
+  <div class="navbar_sticky">
+    <ul>
       <li
-        class="nav-item"
-        [class.active]="activeTabIndex === tab.index"
+        [class.on]="activeTabIndex === tab.index"
         (click)="onTabClick(tab)"
         *ngFor="let tab of tabList"
       >
-        <a class="nav-link"> {{ tab.label }} </a>
+        <a>{{ tab.label }}</a>
       </li>
     </ul>
   </div>
   <div *ngIf="!hasSessionList"><p>No session running at this moment</p></div>
-  <div *ngIf="hasSessionList">
+
+  <dl class="list_default" *ngIf="hasSessionList">
     <ng-container *ngFor="let group of sessionGroupList">
-      <div class="list-group" style="padding-bottom: 1px">
-        <p
-          class="list-group-item list-group-item-action"
-          (click)="onProgramClick(group)"
-        >
-          {{ group.name }}
-        </p>
-        <div class="sub-list" *ngIf="group.show">
-          <ul class="list-group">
-            <li
-              *ngFor="let session of group.session_list"
-              class="list-group-item list-group-item-dark list-group-item-action"
-              routerLink="/program/{{ session.id }}"
-            >
-              <strong>{{ session.name }}</strong>
-            </li>
-          </ul>
-        </div>
-      </div>
+      <dt class="list_item addRight list_open" (click)="onProgramClick(group)">
+        <a class="full"> {{ group.name }} </a>
+        <button type="button" class="a_open">open</button>
+      </dt>
+      <dd class="styleList_addRignt" [class.on]="group.show">
+        <ul class="styleList">
+          <li *ngFor="let session of group.session_list">
+            <a routerLink="/program/{{ session.id }}" class="full">
+              <span class="title">{{ session.name }}</span>
+              <p class="info time">
+                {{ session.start_time | date: 'EE dd MMMM, hh:mma' }} ~
+                {{ session.end_time | date: 'hh:mma' }}
+              </p>
+              <p class="info area">{{ session.room }}</p>
+            </a>
+            <button type="button" class="bookmark"></button>
+          </li>
+        </ul>
+      </dd>
     </ng-container>
-  </div>
-</div>
+  </dl>
+</section>
