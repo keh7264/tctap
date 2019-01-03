@@ -25,6 +25,10 @@ import { FeaturedResearchComponent } from './e-science-station/featured-research
 import { LiveAndVodComponent } from './live-and-vod/live-and-vod.component';
 import { HeaderComponent } from './core/header/header.component';
 import { FooterComponent } from './core/footer/footer.component';
+import { MoreComponent } from './more/more.component';
+import { QuestionComponent } from './question/question.component';
+import { QuestionListComponent } from './question/question-list/question-list.component';
+import { QuestionDetailComponent } from './question/question-detail/question-detail.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +51,11 @@ import { FooterComponent } from './core/footer/footer.component';
     FeaturedResearchComponent,
     LiveAndVodComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    MoreComponent,
+    QuestionComponent,
+    QuestionListComponent,
+    QuestionDetailComponent
   ],
   imports: [
     BrowserModule,

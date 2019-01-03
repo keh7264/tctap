@@ -4,10 +4,17 @@
 >
   <div class="container">
     <div class="position_left">
-      <a (click)="onBackButtonClicked()" class="backLink">back</a>
+      <a
+        (click)="onBackButtonClicked()"
+        class="backLink"
+        *ngIf="isBackButtonShow"
+        >back</a
+      >
     </div>
     <h2>{{ title }}</h2>
-    <div class="position_right"><a href="#" class="search">search</a></div>
+    <div class="position_right">
+      <a href="#" class="search" *ngIf="isSearchButtonShow">search</a>
+    </div>
   </div>
 </nav>
 <nav

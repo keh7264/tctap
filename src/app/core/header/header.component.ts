@@ -17,7 +17,8 @@ import { Location } from '@angular/common';
 })
 export class HeaderComponent implements OnInit {
   title: string = 'TCTAP';
-
+  isBackButtonShow: boolean = true;
+  isSearchButtonShow: boolean = true;
   constructor(
     private tctap: TctapService,
     private route: ActivatedRoute,
@@ -26,6 +27,8 @@ export class HeaderComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.isBackButtonShow = true;
+    this.isSearchButtonShow = true;
     // this.router.events
     //   .pipe(
     //     filter(event => event instanceof NavigationEnd),
@@ -46,6 +49,10 @@ export class HeaderComponent implements OnInit {
       if (title) {
         console.log(title);
         this.title = title;
+        if (title.toLowerCase().indexOf('more') > -1) {
+          this.isBackButtonShow = false;
+          this.isSearchButtonShow = false;
+        }
       }
     });
 

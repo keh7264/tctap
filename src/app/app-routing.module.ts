@@ -1,3 +1,7 @@
+import { QuestionDetailComponent } from './question/question-detail/question-detail.component';
+import { QuestionListComponent } from './question/question-list/question-list.component';
+import { QuestionComponent } from './question/question.component';
+import { MoreComponent } from './more/more.component';
 import { LiveAndVodComponent } from './live-and-vod/live-and-vod.component';
 import { CaseDetailComponent } from './e-science-station/cases/case-detail/case-detail.component';
 import { AbstractDetailComponent } from './e-science-station/abstracts/abstract-detail/abstract-detail.component';
@@ -24,6 +28,10 @@ const routes: Routes = [
   {
     path: 'main',
     component: MainComponent
+  },
+  {
+    path: 'more',
+    component: MoreComponent
   },
   {
     path: 'program/:id',
@@ -63,7 +71,16 @@ const routes: Routes = [
     component: AbstractDetailComponent
   },
   { path: 'eScienceStation/cases/:id', component: CaseDetailComponent },
-  { path: 'liveAndVod', component: LiveAndVodComponent }
+  { path: 'liveAndVod', component: LiveAndVodComponent },
+  {
+    path: 'question',
+    component: QuestionComponent,
+    children: [
+      { path: 'list', component: QuestionListComponent },
+      { path: '', redirectTo: 'list', pathMatch: 'full' },
+      { path: 'list/:id', component: QuestionDetailComponent }
+    ]
+  }
 ];
 
 @NgModule({

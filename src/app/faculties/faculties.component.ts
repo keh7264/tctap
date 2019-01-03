@@ -12,8 +12,4 @@ export class FacultiesComponent implements OnInit {
   constructor(private tctap: TctapService, private router: Router) {}
 
   ngOnInit() {}
-
-  onItemClick(id: string, title: string) {
-    this.router.navigateByUrl('/faculty/list/' + id);
-  }
 }

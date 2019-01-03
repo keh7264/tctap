@@ -1,3 +1,4 @@
+import { httpService } from 'src/app/shared/http.service';
 import { Subject } from 'rxjs';
 import { Injectable } from '@angular/core';
 
@@ -7,7 +8,7 @@ import { Injectable } from '@angular/core';
 export class TctapService {
   _headerTitle: string = 'TCTAP';
   title = new Subject<string>();
-  constructor() {}
+  constructor(private http: httpService) {}
 
   setHeaderTitle(title: string) {
     this._headerTitle = title;
@@ -20,5 +21,9 @@ export class TctapService {
 
   headerTitleChanged() {
     return this.title;
+  }
+
+  query(url, params = {}) {
+    return this.http.query(url, params);
   }
 }

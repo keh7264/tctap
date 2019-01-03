@@ -1,0 +1,9 @@
+<section class="body_contentsArea back_gray">
+  <dl class="list_default">
+    <ng-container *ngFor="let room of roomList">
+      <dt class="list_item addRight list_open">
+        <a class="full" routerLink="{{ room.id }}">{{ room.name }}</a>
+      </dt>
+    </ng-container>
+  </dl>
+</section>
