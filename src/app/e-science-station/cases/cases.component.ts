@@ -1,3 +1,4 @@
+import { TctapService } from './../../shared/tctap.service';
 import { takeUntil, auditTime } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 import { HttpParams } from '@angular/common/http';
@@ -10,7 +11,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cases.component.scss']
 })
 export class CasesComponent implements OnInit {
-  constructor(private http: httpService) {}
+  constructor(private http: httpService, private tctap: TctapService) {}
 
   httpParams: HttpParams;
   private _category: string = '';
@@ -48,6 +49,7 @@ export class CasesComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.tctap.setHeaderTitle('Cases');
     this.getCaseList();
     this.keywordChanged
       .pipe(

@@ -1,3 +1,4 @@
+import { TctapService } from './../../../shared/tctap.service';
 import { ActivatedRoute } from '@angular/router';
 import { httpService } from './../../../shared/http.service';
 import { Component, OnInit } from '@angular/core';
@@ -12,9 +13,14 @@ export class CaseDetailComponent implements OnInit {
   caseItem: any;
   show: boolean = false;
 
-  constructor(private http: httpService, private route: ActivatedRoute) {}
+  constructor(
+    private http: httpService,
+    private route: ActivatedRoute,
+    private tctap: TctapService
+  ) {}
 
   ngOnInit() {
+    this.tctap.setHeaderTitle('Cases');
     this.caseId = this.route.snapshot.paramMap.get('id');
     this.http
       .query('get_case_info', { case_id: this.caseId })

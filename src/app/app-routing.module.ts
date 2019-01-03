@@ -19,18 +19,15 @@ const routes: Routes = [
   { path: '', redirectTo: '/main', pathMatch: 'full' },
   {
     path: 'program/list',
-    component: ProgramsComponent,
-    data: { title: 'program' }
+    component: ProgramsComponent
   },
   {
     path: 'main',
-    component: MainComponent,
-    data: { title: 'main' }
+    component: MainComponent
   },
   {
     path: 'program/:id',
-    component: ProgramComponent,
-    data: { title: 'program' }
+    component: ProgramComponent
   },
   {
     path: 'lecture/:id',
@@ -38,23 +35,19 @@ const routes: Routes = [
   },
   {
     path: 'faculties',
-    component: FacultiesComponent,
-    data: { title: 'faculty' }
+    component: FacultiesComponent
   },
   {
     path: 'faculty/list/:id',
-    component: ListComponent,
-    data: { title: 'faculty' }
+    component: ListComponent
   },
   {
     path: 'faculty/board-list',
-    component: BoardListComponent,
-    data: { title: 'faculty' }
+    component: BoardListComponent
   },
   {
     path: 'faculty/:id',
-    component: FacultyComponent,
-    data: { title: 'faculty' }
+    component: FacultyComponent
   },
   {
     path: 'eScienceStation',

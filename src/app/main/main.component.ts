@@ -1,3 +1,4 @@
+import { TctapService } from './../shared/tctap.service';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./main.component.scss']
 })
 export class MainComponent implements OnInit {
-  constructor(private router: Router) {}
+  constructor(private router: Router, private tctap: TctapService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.tctap.setHeaderTitle('main');
+  }
 }

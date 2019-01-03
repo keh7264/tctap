@@ -1,3 +1,4 @@
+import { TctapService } from './../../shared/tctap.service';
 import { HttpParams } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
 import { httpService } from './../../shared/http.service';
@@ -49,7 +50,12 @@ export class AbstractsComponent implements OnInit, OnDestroy {
     this.keywordChanged.next();
   }
 
-  constructor(private http: httpService, private route: ActivatedRoute) {
+  constructor(
+    private http: httpService,
+    private route: ActivatedRoute,
+    private tctap: TctapService
+  ) {
+    this.tctap.setHeaderTitle('Abstracts');
     this.keywordChanged
       .pipe(
         auditTime(200),

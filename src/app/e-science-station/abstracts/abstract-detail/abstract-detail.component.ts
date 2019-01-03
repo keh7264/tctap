@@ -1,6 +1,7 @@
 import { ActivatedRoute } from '@angular/router';
 import { httpService } from './../../../shared/http.service';
 import { Component, OnInit } from '@angular/core';
+import { TctapService } from 'src/app/shared/tctap.service';
 
 @Component({
   selector: 'app-abstract-detail',
@@ -11,7 +12,13 @@ export class AbstractDetailComponent implements OnInit {
   abstractItem: any;
   abstractId: string;
   show: boolean = false;
-  constructor(private http: httpService, private route: ActivatedRoute) {}
+  constructor(
+    private http: httpService,
+    private route: ActivatedRoute,
+    private tctap: TctapService
+  ) {
+    this.tctap.setHeaderTitle('Abstracts');
+  }
 
   ngOnInit() {
     this.abstractId = this.route.snapshot.paramMap.get('id');

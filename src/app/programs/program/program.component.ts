@@ -1,3 +1,4 @@
+import { TctapService } from './../../shared/tctap.service';
 import { httpService } from './../../shared/http.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
@@ -16,8 +17,13 @@ export class ProgramComponent implements OnInit {
   ngOnInit() {
     this.sessionId = this.route.snapshot.paramMap.get('id');
     this.getSession();
+    this.tctap.setHeaderTitle('Session');
   }
-  constructor(private route: ActivatedRoute, private http: httpService) {}
+  constructor(
+    private route: ActivatedRoute,
+    private http: httpService,
+    private tctap: TctapService
+  ) {}
 
   getSession() {
     this.http

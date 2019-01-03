@@ -1,17 +1,24 @@
+import { Subject } from 'rxjs';
 import { Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TctapService {
-  headerTitle: string = 'TCTAP';
+  _headerTitle: string = 'TCTAP';
+  title = new Subject<string>();
   constructor() {}
 
   setHeaderTitle(title: string) {
-    this.headerTitle = title;
+    this._headerTitle = title;
+    this.title.next(title);
   }
 
   getHeaderTitle() {
-    return this.headerTitle;
+    return this._headerTitle;
+  }
+
+  headerTitleChanged() {
+    return this.title;
   }
 }

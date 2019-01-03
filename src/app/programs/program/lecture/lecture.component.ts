@@ -1,6 +1,7 @@
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { httpService } from 'src/app/shared/http.service';
+import { TctapService } from 'src/app/shared/tctap.service';
 
 @Component({
   selector: 'app-lecture',
@@ -11,9 +12,14 @@ export class LectureComponent implements OnInit {
   lecture: any;
   lectureId: string;
   show: boolean = false;
-  constructor(private http: httpService, private route: ActivatedRoute) {}
+  constructor(
+    private http: httpService,
+    private route: ActivatedRoute,
+    private tctap: TctapService
+  ) {}
 
   ngOnInit() {
+    this.tctap.setHeaderTitle('Lecture');
     this.getLectureId();
     this.getData();
   }
