@@ -31,6 +31,7 @@ import { QuestionListComponent } from './question/question-list/question-list.co
 import { QuestionDetailComponent } from './question/question-detail/question-detail.component';
 import { ProgramListComponent } from './programs/program-list/program-list.component';
 import { SessionComponent } from './programs/program/session/session.component';
+import { FacultyGroupComponent } from './faculties/faculty-group/faculty-group.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import { SessionComponent } from './programs/program/session/session.component';
     QuestionListComponent,
     QuestionDetailComponent,
     ProgramListComponent,
-    SessionComponent
+    SessionComponent,
+    FacultyGroupComponent
   ],
   imports: [
     BrowserModule,

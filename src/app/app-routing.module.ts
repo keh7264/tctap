@@ -1,3 +1,4 @@
+import { FacultyGroupComponent } from './faculties/faculty-group/faculty-group.component';
 import { SessionComponent } from './programs/program/session/session.component';
 import { ProgramListComponent } from './programs/program-list/program-list.component';
 import { QuestionDetailComponent } from './question/question-detail/question-detail.component';
@@ -47,27 +48,28 @@ const routes: Routes = [
     path: 'more',
     component: MoreComponent
   },
+  {
+    path: 'faculty',
+    component: FacultiesComponent,
+    children: [
+      { path: 'list', component: FacultyGroupComponent },
+      { path: '', redirectTo: 'list', pathMatch: 'full' },
+      {
+        path: 'list/board',
+        component: BoardListComponent,
+        pathMatch: 'full'
+      },
+      {
+        path: 'list/:id',
+        component: ListComponent
+      },
+      {
+        path: ':id',
+        component: FacultyComponent
+      }
+    ]
+  },
 
-  {
-    path: 'lecture/:id',
-    component: LectureComponent
-  },
-  {
-    path: 'faculties',
-    component: FacultiesComponent
-  },
-  {
-    path: 'faculty/list/:id',
-    component: ListComponent
-  },
-  {
-    path: 'faculty/board-list',
-    component: BoardListComponent
-  },
-  {
-    path: 'faculty/:id',
-    component: FacultyComponent
-  },
   {
     path: 'eScienceStation',
     component: EScienceStationComponent
