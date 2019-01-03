@@ -1,3 +1,5 @@
+import { SessionComponent } from './programs/program/session/session.component';
+import { ProgramListComponent } from './programs/program-list/program-list.component';
 import { QuestionDetailComponent } from './question/question-detail/question-detail.component';
 import { QuestionListComponent } from './question/question-list/question-list.component';
 import { QuestionComponent } from './question/question.component';
@@ -22,8 +24,20 @@ import { EScienceStationComponent } from './e-science-station/e-science-station.
 const routes: Routes = [
   { path: '', redirectTo: '/main', pathMatch: 'full' },
   {
-    path: 'program/list',
-    component: ProgramsComponent
+    path: 'program',
+    component: ProgramsComponent,
+    children: [
+      { path: 'list', component: ProgramListComponent },
+      { path: '', redirectTo: 'list', pathMatch: 'full' },
+      {
+        path: ':id',
+        component: ProgramComponent,
+        children: [
+          { path: '', component: SessionComponent, pathMatch: 'full' },
+          { path: 'lecture/:id', component: LectureComponent }
+        ]
+      }
+    ]
   },
   {
     path: 'main',
@@ -33,10 +47,7 @@ const routes: Routes = [
     path: 'more',
     component: MoreComponent
   },
-  {
-    path: 'program/:id',
-    component: ProgramComponent
-  },
+
   {
     path: 'lecture/:id',
     component: LectureComponent

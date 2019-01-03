@@ -1,0 +1,75 @@
+<div class="container" style="padding: 30px;" *ngIf="show">
+  <h1>Session</h1>
+
+  <div class="card text-white bg-dark mb-3">
+    <div class="card-body">
+      <p class="card-text">
+        <strong>{{ session.group_name }}</strong>
+      </p>
+      <h4 class="card-title">{{ session.name }}</h4>
+      <p class="card-text">{{ session.subtitle }}</p>
+      <p class="card-text">
+        {{ session.start_time | date: 'EE dd MMMM, hh:mma' }} ~
+        {{ session.end_time | date: 'hh:mma' }}
+      </p>
+      <p class="card-text">{{ session.room }}</p>
+    </div>
+  </div>
+  <div>
+    <button *ngIf="session && session.is_question === 'y'">Question</button>
+  </div>
+  <div>
+    <ul class="list-group" *ngFor="let subject of session.subject_list">
+      <div
+        class="alert alert-danger"
+        style="margin: 10px 0 0"
+        *ngIf="subject.name"
+      >
+        <strong>{{ subject.name }}</strong>
+      </div>
+      <ng-container
+        *ngFor="
+          let typeList of (subject.faculty_list | keyvalue | orderByFaculty);
+          let i = index
+        "
+      >
+        <h6 class="alert alert-info" style="margin: 10px 0 0">
+          {{ typeList.key | uppercase }}
+        </h6>
+        <ng-container *ngFor="let faculty of typeList.value; let id = index">
+          <li class="list-group-item" routerLink="/faculty/{{ faculty.id }}">
+            <img [src]="faculty.profile_url" width="30px" height="30px" />
+            {{ faculty.name }}
+          </li>
+        </ng-container>
+      </ng-container>
+      <div
+        *ngIf="
+          subject && subject.lecture_list && subject.lecture_list.length > 0
+        "
+      >
+        <h6 class="alert alert-info" style="margin: 10px 0 0">PRESENTATION</h6>
+        <ul class="list-group">
+          <li
+            class="list-group-item"
+            *ngFor="let lecture of subject.lecture_list"
+            routerLink="lecture/{{ lecture.id }}"
+          >
+            <i>{{ lecture.name }}</i
+            ><br />
+            <p>
+              {{ lecture.start_time | date: 'EE dd MMMM, hh:mma' }} ~{{
+                lecture.end_time | date: 'hh:mma'
+              }}
+              <br />
+              <span *ngIf="lecture.faculty_list[0]">
+                {{ lecture.faculty_list[0].type }} :
+                {{ lecture.faculty_list[0].name }}</span
+              >
+            </p>
+          </li>
+        </ul>
+      </div>
+    </ul>
+  </div>
+</div>

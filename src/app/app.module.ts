@@ -29,6 +29,8 @@ import { MoreComponent } from './more/more.component';
 import { QuestionComponent } from './question/question.component';
 import { QuestionListComponent } from './question/question-list/question-list.component';
 import { QuestionDetailComponent } from './question/question-detail/question-detail.component';
+import { ProgramListComponent } from './programs/program-list/program-list.component';
+import { SessionComponent } from './programs/program/session/session.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +57,9 @@ import { QuestionDetailComponent } from './question/question-detail/question-det
     MoreComponent,
     QuestionComponent,
     QuestionListComponent,
-    QuestionDetailComponent
+    QuestionDetailComponent,
+    ProgramListComponent,
+    SessionComponent
   ],
   imports: [
     BrowserModule,

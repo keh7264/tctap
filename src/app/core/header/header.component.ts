@@ -52,6 +52,9 @@ export class HeaderComponent implements OnInit {
         if (title.toLowerCase().indexOf('more') > -1) {
           this.isBackButtonShow = false;
           this.isSearchButtonShow = false;
+        } else {
+          this.isBackButtonShow = true;
+          this.isSearchButtonShow = true;
         }
       }
     });
