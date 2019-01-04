@@ -11,7 +11,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cases.component.scss']
 })
 export class CasesComponent implements OnInit {
-  constructor(private http: httpService, private tctap: TctapService) {}
+  constructor(private tctap: TctapService) {}
 
   httpParams: HttpParams;
   private _category: string = '';
@@ -67,7 +67,7 @@ export class CasesComponent implements OnInit {
       .set('category', this.category)
       .set('search', this.keyword)
       .set('sort', this.sort);
-    this.http.query('get_case_list', this.httpParams).subscribe(response => {
+    this.tctap.query('get_case_list', this.httpParams).subscribe(response => {
       this.show = true;
       this.case_list = response.case_list;
       this.case_category_list = response.case_category_list;

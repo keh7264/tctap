@@ -12,11 +12,7 @@ export class LectureComponent implements OnInit {
   lecture: any;
   lectureId: string;
   show: boolean = false;
-  constructor(
-    private http: httpService,
-    private route: ActivatedRoute,
-    private tctap: TctapService
-  ) {}
+  constructor(private route: ActivatedRoute, private tctap: TctapService) {}
 
   ngOnInit() {
     this.tctap.setHeaderInfo('Lecture', true, false);
@@ -29,7 +25,7 @@ export class LectureComponent implements OnInit {
   }
 
   getData() {
-    this.http
+    this.tctap
       .query('get_lecture_info', { lecture_id: this.lectureId })
       .subscribe(response => {
         this.lecture = response.lecture;

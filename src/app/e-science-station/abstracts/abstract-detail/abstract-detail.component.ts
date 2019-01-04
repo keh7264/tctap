@@ -12,17 +12,13 @@ export class AbstractDetailComponent implements OnInit {
   abstractItem: any;
   abstractId: string;
   show: boolean = false;
-  constructor(
-    private http: httpService,
-    private route: ActivatedRoute,
-    private tctap: TctapService
-  ) {
+  constructor(private route: ActivatedRoute, private tctap: TctapService) {
     this.tctap.setHeaderInfo('Abstracts', true, false);
   }
 
   ngOnInit() {
     this.abstractId = this.route.snapshot.paramMap.get('id');
-    this.http
+    this.tctap
       .query('get_abstract_info', { abstract_id: this.abstractId })
       .subscribe(response => {
         this.abstractItem = response.abstractItem;

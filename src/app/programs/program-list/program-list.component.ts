@@ -17,7 +17,6 @@ export interface TabItem {
 })
 export class ProgramListComponent implements OnInit {
   constructor(
-    private http: httpService,
     private datePipe: DatePipe,
     private router: Router,
     private tctap: TctapService
@@ -76,7 +75,7 @@ export class ProgramListComponent implements OnInit {
   }
 
   getData(params: any = { annual: 2018 }) {
-    this.http.query('get_session_list', params).subscribe(res => {
+    this.tctap.query('get_session_list', params).subscribe(res => {
       if (res && res.session_group_list) {
         this.sessionGroupList = res.session_group_list;
         this.sessionGroupList.forEach((item, index) => {

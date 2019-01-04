@@ -50,11 +50,7 @@ export class AbstractsComponent implements OnInit, OnDestroy {
     this.keywordChanged.next();
   }
 
-  constructor(
-    private http: httpService,
-    private route: ActivatedRoute,
-    private tctap: TctapService
-  ) {
+  constructor(private route: ActivatedRoute, private tctap: TctapService) {
     this.tctap.setHeaderInfo('Abstracts', true, false);
     this.keywordChanged
       .pipe(
@@ -82,7 +78,7 @@ export class AbstractsComponent implements OnInit, OnDestroy {
       .set('category', this.category)
       .set('sort', this.sort)
       .set('search', this.keyword);
-    this.http
+    this.tctap
       .query('get_abstract_list', this.queryParam)
       .subscribe(response => {
         this.abstract_list = response.abstract_list;

@@ -23,11 +23,7 @@ export class ListComponent implements OnInit {
     { index: 3, title: 'Korean Invited Faculty' },
     { index: 4, title: 'Korean Faculty of the Year' }
   ];
-  constructor(
-    private http: httpService,
-    private route: ActivatedRoute,
-    private tctap: TctapService
-  ) {}
+  constructor(private route: ActivatedRoute, private tctap: TctapService) {}
 
   ngOnInit() {
     this.groupId = this.route.snapshot.paramMap.get('id');
@@ -46,7 +42,7 @@ export class ListComponent implements OnInit {
   }
 
   getData() {
-    this.http
+    this.tctap
       .query('get_faculty_list', { group_id: this.groupId, annual: '2018' })
       .subscribe(response => {
         this.filteredList = response.filteredList;

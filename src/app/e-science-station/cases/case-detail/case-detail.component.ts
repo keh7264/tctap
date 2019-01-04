@@ -13,16 +13,12 @@ export class CaseDetailComponent implements OnInit {
   caseItem: any;
   show: boolean = false;
 
-  constructor(
-    private http: httpService,
-    private route: ActivatedRoute,
-    private tctap: TctapService
-  ) {}
+  constructor(private route: ActivatedRoute, private tctap: TctapService) {}
 
   ngOnInit() {
     this.tctap.setHeaderInfo('Cases', true, false);
     this.caseId = this.route.snapshot.paramMap.get('id');
-    this.http
+    this.tctap
       .query('get_case_info', { case_id: this.caseId })
       .subscribe(response => {
         this.caseItem = response.case;
