@@ -19,6 +19,9 @@ export class HeaderComponent implements OnInit {
   title: string = 'TCTAP';
   isBackButtonShow: boolean = true;
   isSearchButtonShow: boolean = true;
+  backButtonList: string[] = ['session', 'lecture', 'faculty'];
+  searchButtonList: string[] = ['program'];
+
   constructor(
     private tctap: TctapService,
     private route: ActivatedRoute,
@@ -29,33 +32,13 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
     this.isBackButtonShow = true;
     this.isSearchButtonShow = true;
-    // this.router.events
-    //   .pipe(
-    //     filter(event => event instanceof NavigationEnd),
-    //     map(() => {
-    //       const child = this.route.firstChild.snapshot.data;
-    //       return !!child ? child : null;
-    //     })
-    //   )
-    //   .subscribe(data => {
-    //     console.log(data);
-    //     if (data && data.title) {
-    //       this.title = data.title;
-    //       this.type = data.title === 'main' ? 'main' : 'default';
-    //     }
-    //   });
 
     this.tctap.headerTitleChanged().subscribe(title => {
       if (title) {
         console.log(title);
         this.title = title;
-        if (title.toLowerCase().indexOf('more') > -1) {
-          this.isBackButtonShow = false;
-          this.isSearchButtonShow = false;
-        } else {
-          this.isBackButtonShow = true;
-          this.isSearchButtonShow = true;
-        }
+        this.showBackButton();
+        this.showSearchButton();
       }
     });
 
@@ -64,6 +47,22 @@ export class HeaderComponent implements OnInit {
         window.localStorage.setItem('previousUrl', this.router.url);
       }
     });
+  }
+
+  private showBackButton() {
+    if (this.backButtonList.includes(this.title.toLowerCase())) {
+      this.isBackButtonShow = true;
+    } else {
+      this.isBackButtonShow = false;
+    }
+  }
+
+  private showSearchButton() {
+    if (this.searchButtonList.includes(this.title.toLowerCase())) {
+      this.isSearchButtonShow = true;
+    } else {
+      this.isSearchButtonShow = false;
+    }
   }
 
   onBackButtonClicked() {

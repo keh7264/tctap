@@ -10,6 +10,8 @@ export interface Session {
   is_question: string;
   id: number;
   room: string;
+  is_favorite: string;
+  evaluation: string;
 }
 
 export interface Subject {

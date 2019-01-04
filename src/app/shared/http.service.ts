@@ -27,4 +27,8 @@ export class httpService {
       .get<any>(`${localUrl}/${url}.json?`, httpOptions)
       .pipe(take(1));
   }
+
+  post(url, param = {}) {
+    return this.http.post(url, param).pipe(take(1));
+  }
 }

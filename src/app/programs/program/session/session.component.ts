@@ -1,8 +1,9 @@
+import { Session } from './../../../shared/result.model';
 import { httpService } from 'src/app/shared/http.service';
 import { ActivatedRoute } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
-import { Session } from 'src/app/shared/result.model';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { TctapService } from 'src/app/shared/tctap.service';
+import { ChangeDetectionStrategy } from '@angular/compiler/src/core';
 
 @Component({
   selector: 'app-session',
@@ -14,7 +15,6 @@ export class SessionComponent implements OnInit {
   session: Session;
   show: boolean = false;
   seeMore: boolean = false;
-
   ngOnInit() {
     this.sessionId = this.route.snapshot.paramMap.get('id');
     this.getSession();
@@ -30,5 +30,26 @@ export class SessionComponent implements OnInit {
         console.log(this.session);
         this.show = true;
       });
+  }
+
+  onFavoriteClick() {
+    this.session.is_favorite = this.toggle(this.session);
+  }
+
+  isFavorite(item: any) {
+    return !!item && !!item.is_favorite && item.is_favorite === '1';
+  }
+
+  onFacultyFavoriteClick(faculty: any) {
+    faculty.is_favorite = this.toggle(faculty);
+    //TODO 서버에 없는 기능 추가 필요
+  }
+
+  onLectureFavoriteClick(lecture: any) {
+    lecture.is_favorite = this.toggle(lecture);
+  }
+
+  toggle(item) {
+    return this.isFavorite(item) ? '0' : '1';
   }
 }
