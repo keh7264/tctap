@@ -37,6 +37,9 @@ import { VenueMapComponent } from './venue-map/venue-map.component';
 import { VenueMapListComponent } from './venue-map/venue-map-list/venue-map-list.component';
 import { VenueMapInfoComponent } from './venue-map/venue-map-info/venue-map-info.component';
 import { WrapUpInterviewComponent } from './wrap-up-interview/wrap-up-interview.component';
+import { SponsorsComponent } from './sponsors/sponsors.component';
+import { SponsorListComponent } from './sponsors/sponsor-list/sponsor-list.component';
+import { SponsorDetailComponent } from './sponsors/sponsor-detail/sponsor-detail.component';
 
 @NgModule({
   declarations: [
@@ -71,7 +74,10 @@ import { WrapUpInterviewComponent } from './wrap-up-interview/wrap-up-interview.
     VenueMapComponent,
     VenueMapListComponent,
     VenueMapInfoComponent,
-    WrapUpInterviewComponent
+    WrapUpInterviewComponent,
+    SponsorsComponent,
+    SponsorListComponent,
+    SponsorDetailComponent
   ],
   imports: [
     BrowserModule,

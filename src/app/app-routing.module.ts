@@ -1,3 +1,4 @@
+import { SponsorListComponent } from './sponsors/sponsor-list/sponsor-list.component';
 import { WrapUpInterviewComponent } from './wrap-up-interview/wrap-up-interview.component';
 import { VenueMapInfoComponent } from './venue-map/venue-map-info/venue-map-info.component';
 import { VenueMapListComponent } from './venue-map/venue-map-list/venue-map-list.component';
@@ -26,6 +27,7 @@ import { ProgramComponent } from './programs/program/program.component';
 import { LectureComponent } from './programs/program/lecture/lecture.component';
 import { EScienceStationComponent } from './e-science-station/e-science-station.component';
 import { VenueMapComponent } from './venue-map/venue-map.component';
+import { SponsorsComponent } from './sponsors/sponsors.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/main', pathMatch: 'full' },
@@ -112,6 +114,15 @@ const routes: Routes = [
   {
     path: 'interview',
     component: WrapUpInterviewComponent
+  },
+  {
+    path: 'sponsor',
+    component: SponsorsComponent,
+    children: [
+      { path: 'list', component: SponsorListComponent },
+      { path: '', redirectTo: 'list', pathMatch: 'full' },
+      { path: ':id', component: VenueMapInfoComponent }
+    ]
   }
 ];
 
