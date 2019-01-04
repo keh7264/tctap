@@ -1,11 +1,39 @@
 <nav class="bottom_tabArea navbar navbar-default navbar-fixed-bottom">
   <ul class="align_between">
-    <li class="home" routerLinkActive="on"><a routerLink="/main">Home</a></li>
-    <li class="program" routerLinkActive="on">
-      <a routerLink="/program/list">Program</a>
+    <li
+      class="home"
+      [class.on]="activeTabIndex === 0"
+      (click)="onTabClicked(0)"
+    >
+      <a routerLink="/main">Home</a>
     </li>
-    <li class="search" routerLinkActive="on"><a>Search</a></li>
-    <li class="schedule" routerLinkActive="on"><a>Schedule</a></li>
-    <li class="more" routerLinkActive="on"><a routerLink="/more">More</a></li>
+    <li
+      class="program"
+      [class.on]="activeTabIndex === 1"
+      (click)="onTabClicked(1)"
+    >
+      <a routerLink="/program">Program</a>
+    </li>
+    <li
+      class="search"
+      [class.on]="activeTabIndex === 2"
+      (click)="onTabClicked(2)"
+    >
+      <a>Search</a>
+    </li>
+    <li
+      class="schedule"
+      [class.on]="activeTabIndex === 3"
+      (click)="onTabClicked(3)"
+    >
+      <a>Schedule</a>
+    </li>
+    <li
+      class="more"
+      [class.on]="activeTabIndex === 4"
+      (click)="onTabClicked(4)"
+    >
+      <a routerLink="/more">More</a>
+    </li>
   </ul>
 </nav>

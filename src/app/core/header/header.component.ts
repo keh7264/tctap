@@ -19,9 +19,16 @@ export class HeaderComponent implements OnInit {
   title: string = 'TCTAP';
   isBackButtonShow: boolean = true;
   isSearchButtonShow: boolean = true;
-  backButtonList: string[] = ['session', 'lecture', 'faculty'];
+  backButtonList: string[] = [
+    'session',
+    'lecture',
+    'faculty',
+    'e-science station',
+    'abstracts',
+    'cases'
+  ];
   searchButtonList: string[] = ['program'];
-
+  showHeader: boolean = true;
   constructor(
     private tctap: TctapService,
     private route: ActivatedRoute,
@@ -36,9 +43,12 @@ export class HeaderComponent implements OnInit {
     this.tctap.headerTitleChanged().subscribe(title => {
       if (title) {
         console.log(title);
+        this.showHeader = true;
         this.title = title;
         this.showBackButton();
         this.showSearchButton();
+      } else {
+        this.showHeader = false;
       }
     });
 

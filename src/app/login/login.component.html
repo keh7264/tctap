@@ -1,0 +1,36 @@
+<div class="full_container fat_space login">
+  <button class="btn_close" routerLink="/main">close</button>
+  <div class="img_area"><img src="/assets/img/login_title.png" /></div>
+  <div class="login_panel">
+    <form #f="ngForm">
+      <div class="form-group">
+        <input
+          type="text"
+          class="form-line"
+          id="email"
+          name="email"
+          placeholder="ID (e-mail)"
+          ngModel
+          email
+        />
+      </div>
+      <div class="form-group">
+        <input
+          type="password"
+          class="form-line"
+          placeholder="Password"
+          name="password"
+          id="password"
+          ngModel
+        />
+      </div>
+      <button type="submit" class="btn btn_full" [disabled]="!f.valid">
+        <span>Login</span>
+      </button>
+    </form>
+    <ul class="align_between">
+      <li><a href="#">Forgot password</a></li>
+      <li><a href="#">Register</a></li>
+    </ul>
+  </div>
+</div>

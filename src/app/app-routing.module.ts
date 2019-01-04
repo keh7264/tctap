@@ -1,3 +1,4 @@
+import { LoginComponent } from './login/login.component';
 import { FacultyGroupComponent } from './faculties/faculty-group/faculty-group.component';
 import { SessionComponent } from './programs/program/session/session.component';
 import { ProgramListComponent } from './programs/program-list/program-list.component';
@@ -93,7 +94,8 @@ const routes: Routes = [
       { path: '', redirectTo: 'list', pathMatch: 'full' },
       { path: 'list/:id', component: QuestionDetailComponent }
     ]
-  }
+  },
+  { path: 'login', component: LoginComponent }
 ];
 
 @NgModule({
