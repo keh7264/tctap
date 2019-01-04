@@ -14,7 +14,7 @@ export class SessionComponent implements OnInit {
   sessionId: string;
   session: Session;
   show: boolean = false;
-  seeMore: boolean = false;
+  canSeeMore: boolean = false;
   ngOnInit() {
     this.sessionId = this.route.snapshot.paramMap.get('id');
     this.getSession();
@@ -51,5 +51,13 @@ export class SessionComponent implements OnInit {
 
   toggle(item) {
     return this.isFavorite(item) ? '0' : '1';
+  }
+
+  seeMoreToggle(id) {
+    if (this.canSeeMore) {
+      return true;
+    } else {
+      return id < 3;
+    }
   }
 }

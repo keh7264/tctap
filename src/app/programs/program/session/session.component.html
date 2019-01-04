@@ -36,32 +36,42 @@
           <dt>
             <span class="tit">{{ typeList.key | uppercase }}</span
             ><!-- moderator/discussant.. -->
-            <button type="button" class="more up"><span>more</span></button>
+            <button
+              type="button"
+              class="more"
+              *ngIf="i !== 0"
+              (click)="canSeeMore = !canSeeMore"
+              [class.up]="canSeeMore"
+            >
+              <span>more</span>
+            </button>
           </dt>
           <dd class="styleList_addRignt">
             <ul class="styleBox">
               <li *ngFor="let faculty of typeList.value; let id = index">
-                <a routerLink="/faculty/{{ faculty.id }}" class="addLeft">
-                  <span class="photo">
-                    <img
-                      src="assets/img/people01.png"
-                      *ngIf="!faculty.profile_url"
-                    />
-                    <img
-                      [src]="faculty.profile_url"
-                      *ngIf="!!faculty.profile_url"
-                    />
-                  </span>
-                  <span class="title">{{ faculty.name }}</span>
-                </a>
-                <button
-                  type="button"
-                  class="bookmark"
-                  [class.on]="isFavorite(faculty)"
-                  (click)="onFacultyFavoriteClick(faculty)"
-                >
-                  bookmark
-                </button>
+                <ng-container *ngIf="i === 0 || (i !== 0 && seeMoreToggle(id))">
+                  <a routerLink="/faculty/{{ faculty.id }}" class="addLeft">
+                    <span class="photo">
+                      <img
+                        src="assets/img/people01.png"
+                        *ngIf="!faculty.profile_url"
+                      />
+                      <img
+                        [src]="faculty.profile_url"
+                        *ngIf="!!faculty.profile_url"
+                      />
+                    </span>
+                    <span class="title">{{ faculty.name }}</span>
+                  </a>
+                  <button
+                    type="button"
+                    class="bookmark"
+                    [class.on]="isFavorite(faculty)"
+                    (click)="onFacultyFavoriteClick(faculty)"
+                  >
+                    bookmark
+                  </button>
+                </ng-container>
                 <!--<button type="button" class="bookmark on">bookmark</button>-->
               </li>
             </ul>
