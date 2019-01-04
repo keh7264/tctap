@@ -1,0 +1,14 @@
+<section class="body_contentsArea back_gray">
+  <dl class="list_default">
+    <ng-container *ngFor="let venueMap of venueMapList">
+      <dt class="list_item addRight list_open">
+        <a
+          class="full"
+          routerLink="/venueMap/{{ venueMap.id }}"
+          (click)="onClick(venueMap)"
+          >{{ venueMap.title }}
+        </a>
+      </dt>
+    </ng-container>
+  </dl>
+</section>

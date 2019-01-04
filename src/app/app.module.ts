@@ -33,6 +33,9 @@ import { ProgramListComponent } from './programs/program-list/program-list.compo
 import { SessionComponent } from './programs/program/session/session.component';
 import { FacultyGroupComponent } from './faculties/faculty-group/faculty-group.component';
 import { LoginComponent } from './login/login.component';
+import { VenueMapComponent } from './venue-map/venue-map.component';
+import { VenueMapListComponent } from './venue-map/venue-map-list/venue-map-list.component';
+import { VenueMapInfoComponent } from './venue-map/venue-map-info/venue-map-info.component';
 
 @NgModule({
   declarations: [
@@ -63,7 +66,10 @@ import { LoginComponent } from './login/login.component';
     ProgramListComponent,
     SessionComponent,
     FacultyGroupComponent,
-    LoginComponent
+    LoginComponent,
+    VenueMapComponent,
+    VenueMapListComponent,
+    VenueMapInfoComponent
   ],
   imports: [
     BrowserModule,

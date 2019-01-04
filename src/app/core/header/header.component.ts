@@ -65,6 +65,9 @@ export class HeaderComponent implements OnInit {
     } else {
       this.isBackButtonShow = false;
     }
+    this.tctap.showBackbuttonChanged().subscribe(changed => {
+      this.isBackButtonShow = changed;
+    });
   }
 
   private showSearchButton() {

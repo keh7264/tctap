@@ -8,11 +8,20 @@ import { Injectable } from '@angular/core';
 export class TctapService {
   _headerTitle: string = 'TCTAP';
   title = new Subject<string>();
+  _showBackButton = new Subject<boolean>();
   constructor(private http: httpService) {}
 
   setHeaderTitle(title: string) {
     this._headerTitle = title;
     this.title.next(title);
+  }
+
+  showBackButton(show: boolean) {
+    this._showBackButton.next(show);
+  }
+
+  showBackbuttonChanged() {
+    return this._showBackButton;
   }
 
   getHeaderTitle() {
