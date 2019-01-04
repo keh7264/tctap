@@ -1,3 +1,4 @@
+import { WrapUpInterviewComponent } from './wrap-up-interview/wrap-up-interview.component';
 import { VenueMapInfoComponent } from './venue-map/venue-map-info/venue-map-info.component';
 import { VenueMapListComponent } from './venue-map/venue-map-list/venue-map-list.component';
 import { LoginComponent } from './login/login.component';
@@ -107,6 +108,10 @@ const routes: Routes = [
       { path: '', redirectTo: 'list', pathMatch: 'full' },
       { path: ':id', component: VenueMapInfoComponent }
     ]
+  },
+  {
+    path: 'interview',
+    component: WrapUpInterviewComponent
   }
 ];
 

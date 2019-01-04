@@ -36,6 +36,7 @@ import { LoginComponent } from './login/login.component';
 import { VenueMapComponent } from './venue-map/venue-map.component';
 import { VenueMapListComponent } from './venue-map/venue-map-list/venue-map-list.component';
 import { VenueMapInfoComponent } from './venue-map/venue-map-info/venue-map-info.component';
+import { WrapUpInterviewComponent } from './wrap-up-interview/wrap-up-interview.component';
 
 @NgModule({
   declarations: [
@@ -69,7 +70,8 @@ import { VenueMapInfoComponent } from './venue-map/venue-map-info/venue-map-info
     LoginComponent,
     VenueMapComponent,
     VenueMapListComponent,
-    VenueMapInfoComponent
+    VenueMapInfoComponent,
+    WrapUpInterviewComponent
   ],
   imports: [
     BrowserModule,
