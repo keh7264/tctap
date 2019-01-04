@@ -16,7 +16,13 @@
     <ng-container *ngFor="let group of sessionGroupList">
       <dt class="list_item addRight list_open" (click)="onProgramClick(group)">
         <a class="full"> {{ group.name }} </a>
-        <button type="button" class="a_open">open</button>
+        <button
+          type="button"
+          [class.a_open]="!group.show"
+          [class.a_close]="group.show"
+        >
+          open
+        </button>
       </dt>
       <dd class="styleList_addRignt" [class.on]="group.show">
         <ul class="styleList">
