@@ -10,6 +10,6 @@ export class MoreComponent implements OnInit {
   constructor(private tctap: TctapService) {}
 
   ngOnInit() {
-    this.tctap.setHeaderTitle('More');
+    this.tctap.setHeaderInfo('More', false, false);
   }
 }

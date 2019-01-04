@@ -66,7 +66,7 @@ export class ProgramListComponent implements OnInit {
   ngOnInit() {
     this.setTodayId();
     this.getData();
-    this.tctap.setHeaderTitle('Program');
+    this.tctap.setHeaderInfo('Program', true, true);
   }
 
   private setTodayId() {

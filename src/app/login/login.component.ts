@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
   constructor(private tctap: TctapService) {
-    this.tctap.setHeaderTitle('');
+    this.tctap.setHeaderInfo('', true, false, false, false);
   }
 
   ngOnInit() {}

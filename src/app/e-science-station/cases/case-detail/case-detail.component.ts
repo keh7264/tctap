@@ -20,7 +20,7 @@ export class CaseDetailComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.tctap.setHeaderTitle('Cases');
+    this.tctap.setHeaderInfo('Cases', true, false);
     this.caseId = this.route.snapshot.paramMap.get('id');
     this.http
       .query('get_case_info', { case_id: this.caseId })

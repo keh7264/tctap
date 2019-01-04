@@ -10,6 +10,6 @@ export class QuestionComponent implements OnInit {
   constructor(private tctap: TctapService) {}
 
   ngOnInit() {
-    this.tctap.setHeaderTitle('Send Your Question');
+    this.tctap.setHeaderInfo('Send Your Question', true, false);
   }
 }

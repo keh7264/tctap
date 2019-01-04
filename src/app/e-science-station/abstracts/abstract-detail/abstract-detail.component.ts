@@ -17,7 +17,7 @@ export class AbstractDetailComponent implements OnInit {
     private route: ActivatedRoute,
     private tctap: TctapService
   ) {
-    this.tctap.setHeaderTitle('Abstracts');
+    this.tctap.setHeaderInfo('Abstracts', true, false);
   }
 
   ngOnInit() {

@@ -13,7 +13,7 @@ export class BoardListComponent implements OnInit {
   constructor(private tctap: TctapService) {}
 
   ngOnInit() {
-    this.tctap.setHeaderTitle('Board Members');
+    this.tctap.setHeaderInfo('Board Members', true, false);
     this.getData();
   }
 

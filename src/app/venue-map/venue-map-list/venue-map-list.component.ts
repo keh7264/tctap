@@ -13,8 +13,7 @@ export class VenueMapListComponent implements OnInit {
   constructor(private vp: VenueMapProvider, private tctap: TctapService) {}
 
   ngOnInit() {
-    this.tctap.setHeaderTitle('Venue Map');
-    this.tctap.showBackButton(true);
+    this.tctap.setHeaderInfo('Venue Map', true, false);
     this.venueMapList = this.vp.getVenueList();
   }
 

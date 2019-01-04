@@ -49,7 +49,7 @@ export class CasesComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.tctap.setHeaderTitle('Cases');
+    this.tctap.setHeaderInfo('Cases', true, false);
     this.getCaseList();
     this.keywordChanged
       .pipe(

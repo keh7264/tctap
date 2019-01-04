@@ -41,7 +41,7 @@ export class ListComponent implements OnInit {
         data => data.index === +this.groupId
       )[0];
       console.log(this.selectedFacultyList);
-      this.tctap.setHeaderTitle(this.selectedFacultyList.title);
+      this.tctap.setHeaderInfo(this.selectedFacultyList.title, true, false);
     }
   }
 

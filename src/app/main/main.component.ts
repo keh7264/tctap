@@ -11,6 +11,6 @@ export class MainComponent implements OnInit {
   constructor(private router: Router, private tctap: TctapService) {}
 
   ngOnInit() {
-    this.tctap.setHeaderTitle('main');
+    this.tctap.setHeaderInfo('main', false, false, true);
   }
 }

@@ -5,7 +5,7 @@ import {
   NavigationEnd,
   NavigationStart
 } from '@angular/router';
-import { TctapService } from './../../shared/tctap.service';
+import { TctapService, Header } from './../../shared/tctap.service';
 import { Component, OnInit, Input, AfterContentInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { Location } from '@angular/common';
@@ -16,19 +16,8 @@ import { Location } from '@angular/common';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  title: string = 'TCTAP';
-  isBackButtonShow: boolean = true;
-  isSearchButtonShow: boolean = true;
-  backButtonList: string[] = [
-    'session',
-    'lecture',
-    'faculty',
-    'e-science station',
-    'abstracts',
-    'cases'
-  ];
-  searchButtonList: string[] = ['program'];
-  showHeader: boolean = true;
+  header: Header;
+
   constructor(
     private tctap: TctapService,
     private route: ActivatedRoute,
@@ -37,50 +26,14 @@ export class HeaderComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.isBackButtonShow = true;
-    this.isSearchButtonShow = true;
-
-    this.tctap.headerTitleChanged().subscribe(title => {
-      if (title) {
-        console.log(title);
-        this.showHeader = true;
-        this.title = title;
-        this.showBackButton();
-        this.showSearchButton();
-      } else {
-        this.showHeader = false;
+    this.tctap.headerInfoChanged().subscribe((header: Header) => {
+      if (header) {
+        this.header = header;
       }
     });
-
-    this.router.events.subscribe(event => {
-      if (event instanceof NavigationStart) {
-        window.localStorage.setItem('previousUrl', this.router.url);
-      }
-    });
-  }
-
-  private showBackButton() {
-    if (this.backButtonList.includes(this.title.toLowerCase())) {
-      this.isBackButtonShow = true;
-    } else {
-      this.isBackButtonShow = false;
-    }
-    this.tctap.showBackbuttonChanged().subscribe(changed => {
-      this.isBackButtonShow = changed;
-    });
-  }
-
-  private showSearchButton() {
-    if (this.searchButtonList.includes(this.title.toLowerCase())) {
-      this.isSearchButtonShow = true;
-    } else {
-      this.isSearchButtonShow = false;
-    }
   }
 
   onBackButtonClicked() {
-    // const previousUrl = window.localStorage.getItem('previousUrl');
-    // this.router.navigateByUrl(previousUrl);
     this.location.back();
   }
 }

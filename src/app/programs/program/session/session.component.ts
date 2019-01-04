@@ -18,7 +18,7 @@ export class SessionComponent implements OnInit {
   ngOnInit() {
     this.sessionId = this.route.snapshot.paramMap.get('id');
     this.getSession();
-    this.tctap.setHeaderTitle('Session');
+    this.tctap.setHeaderInfo('Session', true, false);
   }
   constructor(private route: ActivatedRoute, private tctap: TctapService) {}
 

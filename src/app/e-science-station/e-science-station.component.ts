@@ -10,6 +10,6 @@ export class EScienceStationComponent implements OnInit {
   constructor(private tctap: TctapService) {}
 
   ngOnInit() {
-    this.tctap.setHeaderTitle('e-Science Station');
+    this.tctap.setHeaderInfo('e-Science Station', true, false);
   }
 }

@@ -1,21 +1,21 @@
-<ng-container *ngIf="showHeader">
+<ng-container *ngIf="header.show">
   <nav
     class="top_titleArea navbar navbar-default navbar-fixed-top"
-    *ngIf="title !== 'main'"
+    *ngIf="!header.isMain"
   >
     <div class="container">
-      <div class="position_left" *ngIf="isBackButtonShow">
+      <div class="position_left" *ngIf="header.showBackbutton">
         <a (click)="onBackButtonClicked()" class="backLink">back</a>
       </div>
-      <h2>{{ title }}</h2>
+      <h2>{{ header.title }}</h2>
       <div class="position_right">
-        <a href="#" class="search" *ngIf="isSearchButtonShow">search</a>
+        <a href="#" class="search" *ngIf="header.showSearchButton">search</a>
       </div>
     </div>
   </nav>
   <nav
     class="top_titleArea navbar navbar-default navbar-fixed-top"
-    *ngIf="title === 'main'"
+    *ngIf="header.isMain"
   >
     <div class="container">
       <div class="position_left">

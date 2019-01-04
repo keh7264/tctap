@@ -1,35 +1,50 @@
+import { Header } from './tctap.service';
 import { httpService } from 'src/app/shared/http.service';
-import { Subject } from 'rxjs';
+import { Subject, BehaviorSubject } from 'rxjs';
 import { Injectable } from '@angular/core';
+
+export interface Header {
+  isMain: boolean;
+  title: string;
+  showBackbutton: boolean;
+  showSearchButton: boolean;
+  show: boolean;
+}
 
 @Injectable({
   providedIn: 'root'
 })
 export class TctapService {
   _headerTitle: string = 'TCTAP';
+  _header = new BehaviorSubject<Header>({
+    title: 'main',
+    showBackbutton: false,
+    showSearchButton: false,
+    isMain: true,
+    show: false
+  });
   title = new Subject<string>();
   _showBackButton = new Subject<boolean>();
   constructor(private http: httpService) {}
 
-  setHeaderTitle(title: string) {
-    this._headerTitle = title;
-    this.title.next(title);
+  setHeaderInfo(
+    title: string,
+    showBackbutton: boolean,
+    showSearchButton: boolean,
+    isMain = false,
+    show = true
+  ) {
+    this._header.next({
+      title,
+      showBackbutton,
+      showSearchButton,
+      isMain,
+      show
+    });
   }
 
-  showBackButton(show: boolean) {
-    this._showBackButton.next(show);
-  }
-
-  showBackbuttonChanged() {
-    return this._showBackButton;
-  }
-
-  getHeaderTitle() {
-    return this._headerTitle;
-  }
-
-  headerTitleChanged() {
-    return this.title;
+  headerInfoChanged() {
+    return this._header;
   }
 
   query(url, params = {}) {

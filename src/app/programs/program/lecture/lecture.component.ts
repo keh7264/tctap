@@ -19,7 +19,7 @@ export class LectureComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.tctap.setHeaderTitle('Lecture');
+    this.tctap.setHeaderInfo('Lecture', true, false);
     this.getLectureId();
     this.getData();
   }

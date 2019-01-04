@@ -10,6 +10,6 @@ export class FacultyGroupComponent implements OnInit {
   constructor(private tctap: TctapService) {}
 
   ngOnInit() {
-    this.tctap.setHeaderTitle('Faculty');
+    this.tctap.setHeaderInfo('Faculty', true, false);
   }
 }

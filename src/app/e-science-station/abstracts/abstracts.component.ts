@@ -55,7 +55,7 @@ export class AbstractsComponent implements OnInit, OnDestroy {
     private route: ActivatedRoute,
     private tctap: TctapService
   ) {
-    this.tctap.setHeaderTitle('Abstracts');
+    this.tctap.setHeaderInfo('Abstracts', true, false);
     this.keywordChanged
       .pipe(
         auditTime(200),

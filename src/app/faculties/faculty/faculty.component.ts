@@ -19,7 +19,7 @@ export class FacultyComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.tctap.setHeaderTitle('Faculty');
+    this.tctap.setHeaderInfo('Faculty', true, false);
     this.facultyId = this.route.snapshot.paramMap.get('id');
     this.getFaculty();
   }

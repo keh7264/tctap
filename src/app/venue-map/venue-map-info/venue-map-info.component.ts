@@ -27,13 +27,6 @@ export class VenueMapInfoComponent implements OnInit {
     this.venueMap = this.venueMapList.find(
       venueMap => venueMap.id === this.venueId
     );
-    this.tctap.setHeaderTitle(this.venueMap.title);
-    this.tctap.showBackButton(true);
-    //   this.vp.getSelectedVenueMap().subscribe(venueMap => {
-    //     if (venueMap) {
-    //       this.venueMap = venueMap;
-    //     }
-    //   });
-    // }
+    this.tctap.setHeaderInfo(this.venueMap.title, true, false);
   }
 }
