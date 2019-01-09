@@ -1,3 +1,4 @@
+import { AccommodationComponent } from './meeting-information/accommodation/accommodation.component';
 import { HighlightKeywordPipe } from './shared/highlight-keyword.pipe';
 import { DatePipe } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
@@ -44,6 +45,16 @@ import { SponsorBoothComponent } from './sponsors/sponsor/sponsor-booth/sponsor-
 import { SponsorComponent } from './sponsors/sponsor/sponsor.component';
 import { MeetingInformationComponent } from './meeting-information/meeting-information.component';
 import { InformationComponent } from './meeting-information/information/information.component';
+import { GeneralInformationComponent } from './meeting-information/general-information/general-information.component';
+import { TransportationComponent } from './meeting-information/transportation/transportation.component';
+import { TouristInformationComponent } from './meeting-information/tourist-information/tourist-information.component';
+import { AboutCvrfComponent } from './meeting-information/about-cvrf/about-cvrf.component';
+import { GlobalPartnersComponent } from './meeting-information/global-partners/global-partners.component';
+import { TransportationListComponent } from './meeting-information/transportation/transportation-list/transportation-list.component';
+import { CarComponent } from './meeting-information/transportation/car/car.component';
+import { BusComponent } from './meeting-information/transportation/bus/bus.component';
+import { SubwayComponent } from './meeting-information/transportation/subway/subway.component';
+import { AirportComponent } from './meeting-information/transportation/airport/airport.component';
 
 @NgModule({
   declarations: [
@@ -85,7 +96,18 @@ import { InformationComponent } from './meeting-information/information/informat
     SponsorBoothComponent,
     SponsorComponent,
     MeetingInformationComponent,
-    InformationComponent
+    InformationComponent,
+    GeneralInformationComponent,
+    AccommodationComponent,
+    TransportationComponent,
+    TouristInformationComponent,
+    AboutCvrfComponent,
+    GlobalPartnersComponent,
+    TransportationListComponent,
+    CarComponent,
+    BusComponent,
+    SubwayComponent,
+    AirportComponent
   ],
   imports: [
     BrowserModule,

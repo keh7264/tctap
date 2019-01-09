@@ -1,3 +1,12 @@
+import { AirportComponent } from './meeting-information/transportation/airport/airport.component';
+import { BusComponent } from './meeting-information/transportation/bus/bus.component';
+import { SubwayComponent } from './meeting-information/transportation/subway/subway.component';
+import { CarComponent } from './meeting-information/transportation/car/car.component';
+import { TouristInformationComponent } from './meeting-information/tourist-information/tourist-information.component';
+import { GlobalPartnersComponent } from './meeting-information/global-partners/global-partners.component';
+import { AboutCvrfComponent } from './meeting-information/about-cvrf/about-cvrf.component';
+import { TransportationComponent } from './meeting-information/transportation/transportation.component';
+import { AccommodationComponent } from './meeting-information/accommodation/accommodation.component';
 import { InformationComponent } from './meeting-information/information/information.component';
 import { MeetingInformationComponent } from './meeting-information/meeting-information.component';
 import { Sponsor } from './shared/result.model';
@@ -34,15 +43,16 @@ import { VenueMapComponent } from './venue-map/venue-map.component';
 import { SponsorsComponent } from './sponsors/sponsors.component';
 import { SponsorBoothComponent } from './sponsors/sponsor/sponsor-booth/sponsor-booth.component';
 import { SponsorComponent } from './sponsors/sponsor/sponsor.component';
+import { GeneralInformationComponent } from './meeting-information/general-information/general-information.component';
+import { TransportationListComponent } from './meeting-information/transportation/transportation-list/transportation-list.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/main', pathMatch: 'full' },
   {
-    path: 'program',
+    path: 'programs',
     component: ProgramsComponent,
     children: [
-      { path: 'list', component: ProgramListComponent },
-      { path: '', redirectTo: 'list', pathMatch: 'full' },
+      { path: '', component: ProgramListComponent, pathMatch: 'full' },
       {
         path: ':id',
         component: ProgramComponent,
@@ -122,7 +132,7 @@ const routes: Routes = [
     component: WrapUpInterviewComponent
   },
   {
-    path: 'sponsor',
+    path: 'sponsors',
     component: SponsorsComponent,
     children: [
       { path: 'list', component: SponsorListComponent },
@@ -140,7 +150,56 @@ const routes: Routes = [
   {
     path: 'meetingInformation',
     component: MeetingInformationComponent,
-    children: [{ path: '', component: InformationComponent }]
+    children: [
+      { path: '', component: InformationComponent, pathMatch: 'full' },
+      {
+        path: 'generalInformation',
+        component: GeneralInformationComponent
+      },
+      {
+        path: 'accommodation',
+        component: AccommodationComponent
+      },
+      {
+        path: 'transportation',
+        component: TransportationComponent,
+        children: [
+          {
+            path: '',
+            component: TransportationListComponent,
+            pathMatch: 'full'
+          },
+          {
+            path: 'car',
+            component: CarComponent
+          },
+          {
+            path: 'subway',
+            component: SubwayComponent
+          },
+          {
+            path: 'bus',
+            component: BusComponent
+          },
+          {
+            path: 'airport',
+            component: AirportComponent
+          }
+        ]
+      },
+      {
+        path: 'touristInformation',
+        component: TouristInformationComponent
+      },
+      {
+        path: 'aboutCVRF',
+        component: AboutCvrfComponent
+      },
+      {
+        path: 'globalPartners',
+        component: GlobalPartnersComponent
+      }
+    ]
   }
 ];
 

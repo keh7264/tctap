@@ -1,0 +1,383 @@
+@charset "utf-8";
+/* CSS Document */
+body,
+input,
+select,
+textarea {
+  color: #787878;
+  font-family: 'verdana', dotum, AppleGothic, sans-serif;
+  font-size: 100%;
+  font-weight: normal;
+}
+/* 80% == 12px */
+body {
+  background-color: #efefef;
+  -webkit-text-size-adjust: none;
+}
+/* link */
+a,
+a:link,
+a:visited {
+  color: #5689da;
+  text-decoration: underline;
+  cursor: pointer;
+}
+a:hover,
+a:active {
+  color: #787878;
+  cursor: pointer;
+}
+a.site,
+a.site:link,
+a.site:visited {
+  color: #7b431a;
+  text-decoration: none;
+  cursor: pointer;
+}
+a.site:hover,
+a.site:active {
+  color: #7b431a;
+  cursor: pointer;
+}
+
+/* layout */
+#wrap {
+  width: 100%;
+}
+#container {
+  _display: inline-block;
+  width: 100%;
+}
+#container:after {
+  display: block;
+  clear: both;
+  content: '';
+}
+.view_box {
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  background: #fff;
+}
+.view_box .cont {
+  position: relative;
+  padding: 14px;
+}
+
+/* text */
+.icon {
+  text-align: center;
+  padding: 10px 0;
+}
+.icon2 {
+  text-align: left;
+  padding: 10px 0;
+  width: 100px;
+  height: 26px;
+}
+.text {
+  padding: 10px;
+  font-size: 1em;
+  font-weight: bold;
+  color: #666;
+}
+.tit {
+  padding: 4px;
+  font-size: 0.9em;
+  font-weight: bold;
+  color: #ed4a6c;
+}
+.tit strong {
+  padding: 4px;
+  font-size: 0.8em;
+  font-weight: bold;
+  color: #ed4a6c;
+}
+.tit a.webb {
+  color: #5f98d1;
+}
+.tit2 {
+  padding: 4px;
+  font-size: 1em;
+  font-weight: bold;
+  color: #333;
+}
+.tit2 strong {
+  color: #ed4a6c;
+}
+.tit3 {
+  padding: 4px;
+  font-size: 0.9em;
+  font-weight: bold;
+  color: #be9425;
+}
+.sub {
+  padding: 4px;
+  font-size: 0.8em;
+}
+.sub strong {
+  background-color: #c5d3d9;
+  color: #165165;
+  font-weight: bold;
+  padding: 2px 5px;
+}
+.sub .b {
+  font-weight: bold;
+}
+.sub ul {
+  margin: 10px;
+  padding: 0;
+  list-style: none;
+}
+.sub li {
+  position: relative;
+  margin: 0 0 10px 0;
+}
+.sub li .bu {
+  float: left;
+  margin: 0 4px 0 0;
+  color: #999;
+}
+.sub a.webb {
+  color: #5f98d1;
+}
+.sub .bmn {
+  font-weight: bold;
+  width: 100%;
+  background-color: #f5f7f9;
+  padding: 4px;
+  display: block;
+}
+.sub_tab {
+  padding-top: 10px;
+  font-size: 0.8em;
+}
+.sub_tab .box_off {
+  display: inline-block;
+  border: 1px solid #dcdcdc;
+  padding: 2px 10px;
+  margin-bottom: 4px;
+}
+.sub_tab .box_on {
+  display: inline-block;
+  background-color: #5f98d1;
+  color: #fff;
+  font-size: 0.9em;
+  font-weight: bold;
+  padding: 2px 10px;
+  margin-bottom: 4px;
+}
+.sub_members {
+  padding: 4px;
+  font-size: 0.8em;
+}
+.sub_members ul {
+  padding: 0;
+  list-style: none;
+}
+.sub_members li {
+  position: relative;
+  margin: 0 0 20px 0;
+}
+.sub_members .bmn {
+  font-weight: bold;
+  width: 98%;
+  background-color: #f5f7f9;
+  display: block;
+  padding: 8px;
+}
+.sub_members .bmn2 {
+  width: 98%;
+  display: block;
+  padding: 0 8px;
+}
+
+.sub2 {
+  padding: 4px;
+  font-size: 0.8em;
+  color: #333;
+}
+.sub2 strong {
+  background-color: #5f98d1;
+  color: #fff;
+  font-size: 0.9em;
+  font-weight: bold;
+  padding: 1px 7px;
+}
+.sub2 a {
+  color: #fff;
+}
+.sub2 .b {
+  font-weight: bold;
+}
+.btn {
+  padding: 10px;
+  float: right;
+}
+
+/* table */
+.tbl_b {
+  font-size: 0.8em;
+}
+
+.tbl_type,
+.tbl_type th,
+.tbl_type td {
+  border: 0;
+  border-spacing: 0px 0px;
+}
+.tbl_type {
+  width: 100%;
+  border-bottom: 1px solid #dcdcdc;
+  text-align: center;
+  border-collapse: collapse;
+}
+.tbl_type caption {
+  display: none;
+}
+.tbl_type tfoot {
+  background-color: #f5f7f9;
+  font-weight: bold;
+}
+.tbl_type th {
+  padding: 8px 0 4px;
+  border-top: 1px solid #dcdcdc;
+  border-right: 1px solid #dcdcdc;
+  border-left: 1px solid #dcdcdc;
+  background-color: #f5f7f9;
+  color: #666;
+  font-size: 0.9em;
+  font-weight: bold;
+}
+.tbl_type td {
+  padding: 8px 0 4px;
+  border: 1px solid #e5e5e5;
+  color: #4c4c4c;
+}
+.tbl_type td.ranking {
+  font-weight: bold;
+}
+.tbl_type td.view {
+  text-align: center;
+  padding: 8px 0 4px;
+}
+
+.tbl_type2,
+.tbl_type2 th,
+.tbl_type2 td {
+  border: 0;
+  border-spacing: 0px 0px;
+}
+.tbl_type2 {
+  width: 100%;
+  border-bottom: 1px solid #dcdcdc;
+  table-layout: fixed;
+}
+.tbl_type2 caption {
+  display: none;
+}
+.tbl_type2 th {
+  padding: 8px;
+  border-top: 1px solid #dcdcdc;
+  border-right: 1px solid #dcdcdc;
+  background-color: #f5f7f9;
+  color: #666;
+  font-size: 0.9em;
+  font-weight: bold;
+  text-align: left;
+}
+.tbl_type2 th.air {
+  text-align: left;
+  padding: 0 0 0 10px;
+}
+.tbl_type2 td {
+  padding: 8px 5px 5px 12px;
+  border-top: 1px solid #dcdcdc;
+  line-height: 16px;
+  vertical-align: top;
+}
+.tbl_type2 td.blue {
+  border-right: 1px solid #dcdcdc;
+  font-weight: bold;
+  color: #3759ad;
+}
+.tbl_type2 td.green {
+  border-right: 1px solid #dcdcdc;
+  font-weight: bold;
+  color: #4cbe06;
+}
+.tbl_type2 td.yellow {
+  border-right: 1px solid #dcdcdc;
+  font-weight: bold;
+  color: #eda61a;
+}
+.tbl_type2 td.air {
+  border-right: 1px solid #dcdcdc;
+  font-weight: bold;
+  color: #a21ac9;
+}
+.tbl_type2 td.bus {
+  border-right: 1px solid #dcdcdc;
+  font-weight: bold;
+  color: #457382;
+}
+.tbl_type2 td.red {
+  border-right: 1px solid #dcdcdc;
+  font-weight: bold;
+  color: #e61717;
+}
+.tbl_type2 a.webb {
+  color: #5f98d1;
+}
+
+.tbl_type3,
+.tbl_type3 th,
+.tbl_type3 td {
+  border: 0;
+  padding-top: 10px;
+}
+.tbl_type3 {
+  width: 100%;
+  table-layout: fixed;
+}
+.tbl_type3 caption {
+  display: none;
+}
+.tbl_type3 th {
+  padding: 8px;
+  background-color: #f5f7f9;
+  color: #666;
+  font-size: 0.9em;
+  font-weight: bold;
+  text-align: left;
+}
+.tbl_type3 th.air {
+  text-align: left;
+  padding: 0 0 0 10px;
+}
+.tbl_type3 td {
+  padding: 8px 5px 5px 12px;
+  line-height: 16px;
+  vertical-align: top;
+}
+
+/* list */
+.lst_type {
+  padding: 0 10px;
+}
+.lst_type li {
+  overflow: hidden;
+  clear: both;
+  margin: 10px 0 0;
+  list-style: none;
+}
+.lst_type li img {
+  display: inline;
+  float: left;
+  margin: 0 10px 0 0;
+  border: none;
+}
+.lst_type li a {
+}
+.lst_type li a:hover {
+  text-decoration: underline;
+}

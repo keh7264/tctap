@@ -23,7 +23,7 @@
     <p class="paragraph_blue">SPONSORED SESSION</p>
     <ul class="styleBox">
       <li *ngFor="let session of sponsor.session_list">
-        <a class="full" routerLink="/program/{{ session.id }}">
+        <a class="full" routerLink="/programs/{{ session.id }}">
           <p class="info time">
             {{ session.start_time | date: 'EE dd MMMM, hh:mma' }} ~{{
               session.end_time | date: 'hh:mma'

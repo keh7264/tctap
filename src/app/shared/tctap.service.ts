@@ -29,8 +29,8 @@ export class TctapService {
 
   setHeaderInfo(
     title: string,
-    showBackbutton: boolean,
-    showSearchButton: boolean,
+    showBackbutton = true,
+    showSearchButton = false,
     isMain = false,
     show = true
   ) {

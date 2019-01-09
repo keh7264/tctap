@@ -27,7 +27,7 @@
       <dd class="styleList_addRignt" [class.on]="group.show">
         <ul class="styleList">
           <li *ngFor="let session of group.session_list">
-            <a routerLink="/program/{{ session.id }}" class="full">
+            <a routerLink="/programs/{{ session.id }}" class="full">
               <span class="title">{{ session.name }}</span>
               <p class="info time">
                 {{ session.start_time | date: 'EE dd MMMM, hh:mma' }} ~

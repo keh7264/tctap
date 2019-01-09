@@ -18,7 +18,7 @@
       <li
         class="list-group-item"
         *ngFor="let session of faculty.session_list"
-        routerLink="/program/{{ session.id }}"
+        routerLink="/programs/{{ session.id }}"
       >
         <p>
           {{ session.start_time | date: 'EE dd MMMM, hh:mma' }} ~

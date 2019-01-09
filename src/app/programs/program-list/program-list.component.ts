@@ -102,6 +102,6 @@ export class ProgramListComponent implements OnInit {
   }
 
   goProgramDetail(groupId: string) {
-    this.router.navigate(['/program', groupId]);
+    this.router.navigate(['/programs', groupId]);
   }
 }

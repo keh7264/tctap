@@ -1,0 +1,12 @@
+<section class="body_contentsArea back_gray">
+  <dl class="list_default">
+    <dt
+      class="list_item addRight"
+      *ngFor="let accommodation of accommodationList"
+    >
+      <span class="full">{{ accommodation.name }}</span>
+      <span class="info">{{ accommodation.address }}</span>
+      <span class="info">{{ accommodation.tel }}</span>
+    </dt>
+  </dl>
+</section>
