@@ -62,6 +62,7 @@
   -o-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
 }
+
 .list_default .list_item.addRight button.a_close:after {
   position: absolute;
   display: block;
@@ -1349,5 +1350,22 @@
   transform: translateY(-50%);
   position: fixed;
   visibility: hidden;
+}
+/* temp */
+.list_default .list_item.addRight .divRight {
+  position: absolute;
+  right: 0;
+  width: 35px;
+  height: 100%;
+  font-family: 'RobotoM';
+  font-size: 16px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  align-items: center;
+}
+.list_default .list_item.addRight .divRight span {
+  position: relative;
+  text-align: center;
+  vertical-align: middle;
 }
 /*# sourceMappingURL=common.css.map */

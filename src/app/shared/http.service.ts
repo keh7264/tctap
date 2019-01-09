@@ -9,10 +9,7 @@ export interface Param {
   [key: string]: string;
 }
 const headers = new HttpHeaders({
-  'Content-Type': 'application/json',
-  'Access-Control-Allow-Origin': '*',
-  'Access-Control-Allow-Headers':
-    'Origin, X-Requested-With, Content-Type, Accept'
+  'Content-Type': 'application/json'
 });
 
 @Injectable()
@@ -20,7 +17,9 @@ export class httpService {
   constructor(private http: HttpClient) {}
   query(url, params = {}) {
     let httpOptions = {
-      headers,
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      }),
       params: params
     };
     return this.http
@@ -29,6 +28,13 @@ export class httpService {
   }
 
   post(url, param = {}) {
-    return this.http.post(url, param).pipe(take(1));
+    let httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'text/html'
+      }),
+      params: param,
+      responseType: 'text'
+    };
+    return this.http.get<any>(`${localUrl}/${url}?`, httpOptions).pipe(take(1));
   }
 }

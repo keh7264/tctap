@@ -20,3 +20,12 @@ export interface Subject {
   id: number;
   faculty_list: any[];
 }
+
+export interface Sponsor {
+  booth: string;
+  booth_url: string;
+  description: string;
+  id: number;
+  name: string;
+  session_list: any[];
+}

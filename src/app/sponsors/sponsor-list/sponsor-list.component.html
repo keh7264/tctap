@@ -1,3 +1,14 @@
-<p>
-  sponsor-list works!
-</p>
+<section class="body_contentsArea back_gray">
+  <dl class="list_default">
+    <ng-container *ngFor="let sponsor of sponsors">
+      <dt class="list_item addRight">
+        <a class="full" routerLink="/sponsor/{{ sponsor.id }}"
+          >{{ sponsor.name }}
+        </a>
+        <div class="divRight">
+          <span>{{ sponsor.booth }}</span>
+        </div>
+      </dt>
+    </ng-container>
+  </dl>
+</section>

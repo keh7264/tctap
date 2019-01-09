@@ -1,7 +1,7 @@
 import { httpService } from 'src/app/shared/http.service';
 import { DomSanitizer } from '@angular/platform-browser';
-import { Component, OnInit, Sanitizer } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
 import { TctapService } from 'src/app/shared/tctap.service';
 import { Sponsor } from 'src/app/shared/result.model';
 
@@ -13,7 +13,6 @@ import { Sponsor } from 'src/app/shared/result.model';
 export class SponsorDetailComponent implements OnInit {
   sponsorId: string;
   sponsor: Sponsor;
-  htmlll: any;
   constructor(
     private route: ActivatedRoute,
     private tctap: TctapService,

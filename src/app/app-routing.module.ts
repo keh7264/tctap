@@ -1,3 +1,7 @@
+import { InformationComponent } from './meeting-information/information/information.component';
+import { MeetingInformationComponent } from './meeting-information/meeting-information.component';
+import { Sponsor } from './shared/result.model';
+import { SponsorDetailComponent } from './sponsors/sponsor/sponsor-detail/sponsor-detail.component';
 import { SponsorListComponent } from './sponsors/sponsor-list/sponsor-list.component';
 import { WrapUpInterviewComponent } from './wrap-up-interview/wrap-up-interview.component';
 import { VenueMapInfoComponent } from './venue-map/venue-map-info/venue-map-info.component';
@@ -28,6 +32,8 @@ import { LectureComponent } from './programs/program/lecture/lecture.component';
 import { EScienceStationComponent } from './e-science-station/e-science-station.component';
 import { VenueMapComponent } from './venue-map/venue-map.component';
 import { SponsorsComponent } from './sponsors/sponsors.component';
+import { SponsorBoothComponent } from './sponsors/sponsor/sponsor-booth/sponsor-booth.component';
+import { SponsorComponent } from './sponsors/sponsor/sponsor.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/main', pathMatch: 'full' },
@@ -121,8 +127,20 @@ const routes: Routes = [
     children: [
       { path: 'list', component: SponsorListComponent },
       { path: '', redirectTo: 'list', pathMatch: 'full' },
-      { path: ':id', component: VenueMapInfoComponent }
+      {
+        path: ':id',
+        component: SponsorComponent,
+        children: [
+          { path: '', component: SponsorDetailComponent, pathMatch: 'full' },
+          { path: ':booth', component: SponsorBoothComponent }
+        ]
+      }
     ]
+  },
+  {
+    path: 'meetingInformation',
+    component: MeetingInformationComponent,
+    children: [{ path: '', component: InformationComponent }]
   }
 ];
 
