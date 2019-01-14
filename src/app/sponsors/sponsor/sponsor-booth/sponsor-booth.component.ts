@@ -10,23 +10,23 @@ import { httpService } from 'src/app/shared/http.service';
 })
 export class SponsorBoothComponent implements OnInit {
   boothId: string;
-  source: any;
-  constructor(
-    private route: ActivatedRoute,
-    private tctap: TctapService,
-    private http: httpService
-  ) {}
+  list: any;
+  constructor(private route: ActivatedRoute, private tctap: TctapService) {}
 
   ngOnInit() {
     this.boothId = this.route.snapshot.paramMap.get('booth');
-    this.http
-      .post('get_exhibition_map', {
+    this.tctap
+      .query('get_exhibition_map', {
         annual: 2018,
         booth: this.boothId
       })
       .subscribe(response => {
         console.log(response);
-        this.source = response;
+        this.list = response.list;
       });
+  }
+
+  aaa(i) {
+    console.log(i.booth);
   }
 }

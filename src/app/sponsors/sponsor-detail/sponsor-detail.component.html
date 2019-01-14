@@ -13,7 +13,9 @@
     </div>
   </div>
   <div class="group_whiteBox">
-    <p class="paragraph_blue">COMPANY DESCRIPTION</p>
+    <p class="paragraph_blue" *ngIf="sponsor.description">
+      COMPANY DESCRIPTION
+    </p>
     <div>{{ sponsor.description }}</div>
   </div>
   <div

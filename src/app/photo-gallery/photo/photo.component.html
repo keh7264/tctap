@@ -1,0 +1,9 @@
+<section class="body_contentsArea back_gray">
+  <div style="display:block">
+    <button type="button" (click)="onClickNext(photoId + 1)">PREV</button>
+  </div>
+  <div class="img_area" *ngIf="selectedPhoto">
+    <img [src]="selectedPhoto.url" />
+  </div>
+  <button type="button" (click)="onClickNext(photoId - 1)">NEXT</button>
+</section>

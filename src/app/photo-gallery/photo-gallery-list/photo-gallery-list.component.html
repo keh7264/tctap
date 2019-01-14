@@ -1,0 +1,7 @@
+<section class="body_contentsArea back_gray">
+  <div class="photo_gallery">
+    <div *ngFor="let photo of photoList" class="photo_gallery_area">
+      <img [src]="photo.thumb" (click)="clickImg(photo)" />
+    </div>
+  </div>
+</section>

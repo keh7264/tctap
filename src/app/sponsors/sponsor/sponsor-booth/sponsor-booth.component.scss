@@ -1,3 +1,15 @@
+body {
+  text-align: center;
+}
+
+area:focus {
+  outline-color: red;
+  border: 2px;
+}
+a {
+  color: #fff;
+  text-decoration: none;
+}
 /*
  * qTip2 - Pretty powerful tooltips - v2.2.0
  * http://qtip2.com
@@ -100,14 +112,6 @@
 
   color: inherit;
   background: transparent none no-repeat -100em -100em;
-}
-
-/* Applied to 'focused' tooltips e.g. most recently displayed/interacted with */
-.qtip-focus {
-}
-
-/* Applied on hover of tooltips i.e. added/removed on mouseenter/mouseleave respectively */
-.qtip-hover {
 }
 
 /* Default tooltip style */

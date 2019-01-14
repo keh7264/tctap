@@ -14,6 +14,7 @@ export class SponsorDetailComponent implements OnInit {
   sponsorId: string;
   sponsor: Sponsor;
   htmlll: any;
+
   constructor(
     private route: ActivatedRoute,
     private tctap: TctapService,

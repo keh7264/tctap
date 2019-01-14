@@ -32,9 +32,9 @@ export class httpService {
       headers: new HttpHeaders({
         'Content-Type': 'text/html'
       }),
-      params: param,
-      responseType: 'text'
+      params: param
     };
+
     return this.http.get<any>(`${localUrl}/${url}?`, httpOptions).pipe(take(1));
   }
 }

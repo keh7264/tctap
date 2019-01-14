@@ -45,6 +45,9 @@ import { SponsorBoothComponent } from './sponsors/sponsor/sponsor-booth/sponsor-
 import { SponsorComponent } from './sponsors/sponsor/sponsor.component';
 import { GeneralInformationComponent } from './meeting-information/general-information/general-information.component';
 import { TransportationListComponent } from './meeting-information/transportation/transportation-list/transportation-list.component';
+import { PhotoGalleryComponent } from './photo-gallery/photo-gallery.component';
+import { PhotoComponent } from './photo-gallery/photo/photo.component';
+import { PhotoGalleryListComponent } from './photo-gallery/photo-gallery-list/photo-gallery-list.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/main', pathMatch: 'full' },
@@ -135,8 +138,7 @@ const routes: Routes = [
     path: 'sponsors',
     component: SponsorsComponent,
     children: [
-      { path: 'list', component: SponsorListComponent },
-      { path: '', redirectTo: 'list', pathMatch: 'full' },
+      { path: '', component: SponsorListComponent, pathMatch: 'full' },
       {
         path: ':id',
         component: SponsorComponent,
@@ -145,6 +147,14 @@ const routes: Routes = [
           { path: ':booth', component: SponsorBoothComponent }
         ]
       }
+    ]
+  },
+  {
+    path: 'photoGallery',
+    component: PhotoGalleryComponent,
+    children: [
+      { path: '', pathMatch: 'full', component: PhotoGalleryListComponent },
+      { path: 'photo', component: PhotoComponent }
     ]
   },
   {

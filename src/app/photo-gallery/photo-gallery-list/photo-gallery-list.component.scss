@@ -1,0 +1,13 @@
+.photo_gallery {
+  width: 100%;
+}
+div.photo_gallery_area {
+  display: inline-block;
+  width: 33.3%;
+}
+img {
+  width: 136px;
+  padding: 5px;
+  height: 136px;
+  object-fit: contain;
+}

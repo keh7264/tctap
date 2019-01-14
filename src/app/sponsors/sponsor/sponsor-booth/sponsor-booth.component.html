@@ -1,3 +1,20 @@
 <section class="body_contentsArea back_gray">
-  <div class="img_area"><div [innerHTML]="source"></div></div>
+  <map name="booth" id="booth">
+    <ng-container *ngFor="let i of list">
+      <area
+        shape="rect"
+        coords="{{ i.x1 }},{{ i.y1 }},{{ i.x2 }},{{ i.y2 }}"
+        id="{{ i.id }}"
+        alt="{{ i.booth }}"
+        (click)="aaa(i)"
+      />
+    </ng-container>
+    <area shape="rect" coords="490,221,522,254" id="6911" alt="D017" />
+  </map>
+  <img
+    src="/assets/img/booth.png"
+    usemap="#booth"
+    id="booth_img"
+    alt="map image"
+  />
 </section>

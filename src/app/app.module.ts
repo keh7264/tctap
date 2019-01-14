@@ -1,3 +1,4 @@
+import { PhotoGalleryProvider } from './photo-gallery/photo-gallery.provider';
 import { AccommodationComponent } from './meeting-information/accommodation/accommodation.component';
 import { HighlightKeywordPipe } from './shared/highlight-keyword.pipe';
 import { DatePipe } from '@angular/common';
@@ -55,6 +56,9 @@ import { CarComponent } from './meeting-information/transportation/car/car.compo
 import { BusComponent } from './meeting-information/transportation/bus/bus.component';
 import { SubwayComponent } from './meeting-information/transportation/subway/subway.component';
 import { AirportComponent } from './meeting-information/transportation/airport/airport.component';
+import { PhotoGalleryComponent } from './photo-gallery/photo-gallery.component';
+import { PhotoGalleryListComponent } from './photo-gallery/photo-gallery-list/photo-gallery-list.component';
+import { PhotoComponent } from './photo-gallery/photo/photo.component';
 
 @NgModule({
   declarations: [
@@ -107,7 +111,10 @@ import { AirportComponent } from './meeting-information/transportation/airport/a
     CarComponent,
     BusComponent,
     SubwayComponent,
-    AirportComponent
+    AirportComponent,
+    PhotoGalleryComponent,
+    PhotoGalleryListComponent,
+    PhotoComponent
   ],
   imports: [
     BrowserModule,
@@ -116,7 +123,13 @@ import { AirportComponent } from './meeting-information/transportation/airport/a
     ReactiveFormsModule,
     FormsModule
   ],
-  providers: [httpService, DatePipe, OrderByFacultyPipe, HighlightKeywordPipe],
+  providers: [
+    httpService,
+    PhotoGalleryProvider,
+    DatePipe,
+    OrderByFacultyPipe,
+    HighlightKeywordPipe
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
