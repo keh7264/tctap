@@ -14,7 +14,7 @@
 
   <dl class="list_default" *ngIf="hasSessionList">
     <ng-container *ngFor="let group of sessionGroupList">
-      <dt class="list_item addRight list_open" (click)="onProgramClick(group)">
+      <dt class="list_item addRight" (click)="onProgramClick(group)">
         <a class="full"> {{ group.name }} </a>
         <button
           type="button"

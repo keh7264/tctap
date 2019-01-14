@@ -1,40 +1,49 @@
-<div class="container" *ngIf="show">
-  <h1>Faculty</h1>
-  <div class="card text-center" style="max-width: 18rem;">
-    <div class="card-body">
-      <img class="card-img-top rounded" src="{{ faculty.profile_url }}" />
-      <h4 class="card-title">{{ faculty.name }}</h4>
-      <p class="card-text">{{ faculty.organization }}</p>
-      <p class="card-text">{{ faculty.nation }}</p>
-    </div>
-  </div>
-  <hr />
-  <div>
-    <h5 class="alert alert-info" style="margin: 10px 0 0">SESSION</h5>
-    <ul
-      class="list-group"
-      *ngIf="faculty && faculty.session_list && faculty.session_list.length > 0"
-    >
-      <li
-        class="list-group-item"
-        *ngFor="let session of faculty.session_list"
-        routerLink="/programs/{{ session.id }}"
-      >
-        <p>
-          {{ session.start_time | date: 'EE dd MMMM, hh:mma' }} ~
-          {{ session.end_time | date: 'hh:mma' }}
-        </p>
-        <p>
-          <strong>{{ session.name }}</strong>
-        </p>
+<section class="body_contentsArea back_gray" *ngIf="show">
+  <div class="info_detail">
+    <ul class="styleList">
+      <li>
+        <div class="addLeft">
+          <span class="photo"><img src="{{ faculty.profile_url }}"/></span>
+        </div>
+        <a href="#" class="mail">send mail</a>
+        <button type="button" class="bookmark">bookmark</button>
+        <!--<button type="button" class="bookmark on">bookmark</button>-->
+      </li>
+      <li>
+        <em class="bigTitle">{{ faculty.name }}</em>
+        <p class="subtxt">{{ faculty.organization }}</p>
+        <p class="subtxt">{{ faculty.nation }}</p>
       </li>
     </ul>
-    <div
-      *ngIf="
-        !faculty || !faculty.session_list || faculty.session_list.length <= 0
-      "
-    >
-      No results found
-    </div>
   </div>
-</div>
+  <div class="group_whiteBox">
+    <dl>
+      <dt><span class="tit">SESSION</span></dt>
+      <dd>
+        <ul
+          class="styleBox fewLine"
+          *ngIf="
+            faculty && faculty.session_list && faculty.session_list.length > 0
+          "
+        >
+          <li *ngFor="let session of faculty.session_list">
+            <a routerLink="/programs/{{ session.id }}" class="full">
+              <span class="title">{{ session.name }}</span>
+              <p class="info time">
+                {{ session.start_time | date: 'EE dd MMMM, hh:mma' }} ~
+                {{ session.end_time | date: 'hh:mma' }}
+              </p>
+            </a>
+          </li>
+        </ul>
+      </dd>
+    </dl>
+  </div>
+  <div
+    *ngIf="
+      !faculty || !faculty.session_list || faculty.session_list.length <= 0
+    "
+  >
+    No results found
+  </div>
+</section>

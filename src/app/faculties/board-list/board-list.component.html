@@ -1,48 +1,30 @@
-<div class="container">
-  <ul class="list-group">
+<section class="body_contentsArea back_gray">
+  <dl class="styleList_addRignt addTitle">
     <ng-container *ngFor="let list of (filteredList | keyvalue)">
-      <hr />
-      <p
-        class="alert alert-info"
-        style="margin: 10px 0 0"
-        *ngIf="list.key === '1'"
-      >
-        Course Directors
-      </p>
-      <p
-        class="alert alert-info"
-        style="margin: 10px 0 0"
-        *ngIf="list.key === '2'"
-      >
-        Course Co-Directors
-      </p>
-      <p
-        class="alert alert-info"
-        style="margin: 10px 0 0"
-        *ngIf="list.key === '3'"
-      >
-        Scientific Committee
-      </p>
-      <p
-        class="alert alert-info"
-        style="margin: 10px 0 0"
-        *ngIf="list.key === '4'"
-      >
-        Honorary Board
-      </p>
-      <hr />
-      <ng-container *ngFor="let faculty of list.value">
-        <li class="list-group-item" routerLink="/faculty/{{ faculty.id }}">
-          <img
-            src="{{ faculty.profile_url }}"
-            class="img-fluid rounded-circle float-left"
-            width="50px"
-          />
-          <p>{{ faculty.name }}</p>
-          <p>{{ faculty.organization }}</p>
-          <p>{{ faculty.nation }}</p>
-        </li>
-      </ng-container>
+      <dt *ngIf="list.key === '1'">Course Directors</dt>
+      <dt *ngIf="list.key === '2'">Course Co-Directors</dt>
+      <dt *ngIf="list.key === '3'">Scientific Committee</dt>
+      <dt *ngIf="list.key === '4'">Honorary Board</dt>
+      <dd>
+        <ul class="styleList">
+          <ng-container *ngFor="let faculty of list.value">
+            <li>
+              <a routerLink="/faculty/{{ faculty.id }}" class="addLeft">
+                <span class="photo"
+                  ><img
+                    src="{{ faculty.profile_url }}"
+                    *ngIf="faculty.profile_url"
+                /></span>
+                <em class="subject">{{ faculty.name }}</em>
+                <p class="subtxt">{{ faculty.organization }}</p>
+                <p class="subtxt">{{ faculty.nation }}</p>
+              </a>
+              <button type="button" class="bookmark">bookmark</button>
+              <!--<button type="button" class="bookmark on">bookmark</button>-->
+            </li>
+          </ng-container>
+        </ul>
+      </dd>
     </ng-container>
-  </ul>
-</div>
+  </dl>
+</section>

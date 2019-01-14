@@ -231,7 +231,7 @@ input[type='checkbox'] {
   -webkit-appearance: none;
 }
 
-/*遺��듃�뒪�듃�옪 �궗�슜肄붾뱶*/
+/*부트스트랩 사용코드*/
 .container {
   margin-right: auto;
   margin-left: auto;
@@ -566,7 +566,9 @@ fieldset[disabled] .btn {
   filter: alpha(opacity=65);
   -webkit-box-shadow: none;
   box-shadow: none;
-  opacity: 0.65;
+}
+.btn[disabled] span {
+  opacity: 0.4;
 }
 .form-control {
   display: block;
@@ -654,13 +656,13 @@ textarea.form-control {
   clear: both;
 }
 .center-block {
-  /*以묒븰�젙�젹*/
+  /*중앙정렬*/
   display: block;
   margin-left: auto;
   margin-right: auto;
 }
 .text-hide {
-  /*�씠誘몄� ��泥�*/
+  /*이미지 대체*/
   font: 0/0 a;
   color: transparent;
   text-shadow: none;

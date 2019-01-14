@@ -1,48 +1,73 @@
-<div class="container" style="padding: 30px;" *ngIf="show">
-  <h1>Lecture</h1>
-  <div class="card text-white bg-dark mb-3">
-    <div class="card-body">
-      <p class="card-text">{{ lecture.group_name }}</p>
-      <h4 class="card-title">{{ lecture.session_name }}</h4>
-      <p class="card-text">
-        {{ lecture.start_time | date: 'EE dd MMMM, hh:mma' }} ~{{
-          lecture.end_time | date: 'hh:mma'
-        }}
-      </p>
-      <p class="card-text">{{ lecture.room }}</p>
+<section class="body_contentsArea back_gray" *ngIf="lecture">
+  <div class="state_view">
+    <p class="attach ellipsis">{{ lecture.group_name }}</p>
+    <div class="title_inline">
+      <p class="tit ellipsis2">{{ lecture.session_name }}</p>
+      <button type="button" class="bookmark on">bookmark</button>
     </div>
+    <p class="info time">
+      {{ lecture.start_time | date: 'EE dd MMMM, hh:mma' }} ~{{
+        lecture.end_time | date: 'hh:mma'
+      }}
+    </p>
+    <p class="info area">{{ lecture.room }}</p>
   </div>
-  <hr />
-  <div>
-    <h5 class="alert alert-info" style="margin: 10px 0 0">
-      {{ lecture.name }}
-    </h5>
-    <ng-container *ngIf="lecture && lecture.faculty_list">
-      <ng-container
-        *ngFor="let faculty_list of (lecture.faculty_list | keyvalue)"
-      >
-        <p class="alert alert-dark" style="margin: 10px 0 0">
-          {{ faculty_list.key }}
-        </p>
-        <ul class="list-group">
-          <li
-            *ngFor="let faculty of faculty_list.value"
-            class="list-group-item"
-            routerLink="/faculty/{{ faculty.id }}"
-          >
-            <img
-              src="{{ faculty.profile_url }}"
-              style="width: 50px;"
-              class="img-fluid rounded-circle float-left"
-            />
-            <p>
-              <strong>{{ faculty.name }}</strong>
-            </p>
-            <p>{{ faculty.organization }}</p>
-            <p>{{ faculty.nation }}</p>
+
+  <div class="group_whiteBox">
+    <p class="paragraph_blue">{{ lecture.name }}</p>
+    <dl>
+      <ng-container *ngIf="lecture && lecture.faculty_list">
+        <ng-container
+          *ngFor="let faculty_list of (lecture.faculty_list | keyvalue)"
+        >
+          <dt>
+            <span class="tit"> {{ faculty_list.key | uppercase }}</span>
+          </dt>
+          <dd class="styleList_addRignt">
+            <ul class="styleBox">
+              <li *ngFor="let faculty of faculty_list.value">
+                <a routerLink="/faculty/{{ faculty.id }}" class="addLeft">
+                  <span class="photo"
+                    ><img
+                      src="{{ faculty.profile_url }}"
+                      *ngIf="faculty.profile_url"
+                  /></span>
+                  <span class="title">{{ faculty.name }}</span>
+                </a>
+                <button type="button" class="bookmark on">bookmark</button>
+              </li>
+            </ul>
+          </dd>
+        </ng-container>
+      </ng-container>
+      <dt class="solo">
+        <span class="tit">EVALUATION</span>
+        <div class="grade_wrap">
+          <button type="button" class="grade on"></button>
+          <button type="button" class="grade"></button>
+          <button type="button" class="grade"></button>
+          <button type="button" class="grade"></button>
+          <button type="button" class="grade"></button>
+        </div>
+      </dt>
+      <dt><span class="tit">RELATED CONTENT</span></dt>
+      <dd>
+        <ul class="styleBox">
+          <li>
+            <a href="#" class="full">
+              <span class="title">PDF Download</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="full"> <span class="title">e-Abstract</span> </a>
+          </li>
+          <li>
+            <a href="#" class="full">
+              <span class="title">View Slides</span>
+            </a>
           </li>
         </ul>
-      </ng-container>
-    </ng-container>
+      </dd>
+    </dl>
   </div>
-</div>
+</section>

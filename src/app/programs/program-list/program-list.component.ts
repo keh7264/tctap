@@ -33,32 +33,32 @@ export class ProgramListComponent implements OnInit {
     {
       index: '0',
       code: '',
-      label: 'ALL'
+      label: 'All'
     },
     {
       index: '1',
       code: '',
-      label: 'NOW'
+      label: 'Now'
     },
     {
       index: '2',
       code: '20180428',
-      label: 'April 28'
+      label: 'Apr 27'
     },
     {
       index: '3',
       code: '20180429',
-      label: 'April 29'
+      label: 'Apr 28'
     },
     {
       index: '4',
       code: '20180430',
-      label: 'April 30'
+      label: 'Apr 29'
     },
     {
       index: '5',
       code: '20180501',
-      label: 'May 1'
+      label: 'Apr 30'
     }
   ];
 
@@ -70,7 +70,7 @@ export class ProgramListComponent implements OnInit {
 
   private setTodayId() {
     this.tabList.find(
-      item => item.label === 'NOW'
+      item => item.label.toLowerCase() === 'Now'.toLowerCase()
     ).code = this.datePipe.transform(new Date(), 'yyyyMMdd');
   }
 
