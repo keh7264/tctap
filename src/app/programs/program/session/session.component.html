@@ -48,8 +48,10 @@
           </dt>
           <dd class="styleList_addRignt">
             <ul class="styleBox">
-              <li *ngFor="let faculty of typeList.value; let id = index">
-                <ng-container *ngIf="i === 0 || (i !== 0 && seeMoreToggle(id))">
+              <ng-container
+                *ngFor="let faculty of typeList.value; let id = index"
+              >
+                <li *ngIf="i === 0 || (i !== 0 && seeMoreToggle(id))">
                   <a routerLink="/faculty/{{ faculty.id }}" class="addLeft">
                     <span class="photo">
                       <img
@@ -71,9 +73,9 @@
                   >
                     bookmark
                   </button>
-                </ng-container>
-                <!--<button type="button" class="bookmark on">bookmark</button>-->
-              </li>
+                  <!--<button type="button" class="bookmark on">bookmark</button>-->
+                </li>
+              </ng-container>
             </ul>
           </dd>
         </ng-container>
