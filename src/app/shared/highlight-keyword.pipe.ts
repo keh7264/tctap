@@ -17,7 +17,10 @@ export class HighlightKeywordPipe implements PipeTransform {
       return value;
     }
 
-    const result = value.replace(re, '<mark>' + match[0] + '</mark>');
+    const result = value.replace(
+      re,
+      '<span calss="search_txt">' + match[0] + '</span>'
+    );
     return this.sanitizer.bypassSecurityTrustHtml(result);
   }
 }

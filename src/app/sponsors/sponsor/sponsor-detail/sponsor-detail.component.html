@@ -1,37 +1,81 @@
 <section class="body_contentsArea back_gray" *ngIf="sponsor">
-  <div class="state_view">
-    <div class="title_inline">
-      <p class="tit">{{ sponsor.name }}</p>
-      <button
-        class="booth"
-        *ngIf="sponsor && sponsor.booth"
-        routerLink="{{ sponsor.booth }}"
-      >
-        {{ sponsor.booth }}
-      </button>
+  <ul class="fixed_scrolling">
+    <li><a href="#">A</a></li>
+    <li><a href="#">B</a></li>
+    <li><a href="#">C</a></li>
+    <li><a href="#">D</a></li>
+    <li><a href="#">E</a></li>
+    <li><a href="#">F</a></li>
+    <li><a href="#">G</a></li>
+    <li><a href="#">H</a></li>
+    <li><a href="#">I</a></li>
+    <li><a href="#">J</a></li>
+    <li><a href="#">K</a></li>
+    <li><a href="#">L</a></li>
+    <li><a href="#">M</a></li>
+    <li><a href="#">N</a></li>
+    <li><a href="#">O</a></li>
+    <li><a href="#">P</a></li>
+    <li><a href="#">Q</a></li>
+    <li><a href="#">R</a></li>
+    <li><a href="#" class="on">S</a></li>
+    <li><a href="#">T</a></li>
+    <li><a href="#">U</a></li>
+    <li><a href="#">V</a></li>
+    <li><a href="#">W</a></li>
+    <li><a href="#">X</a></li>
+    <li><a href="#">Y</a></li>
+    <li><a href="#">Z</a></li>
+    <li><a href="#">#</a></li>
+  </ul>
+
+  <div class="list_default detail">
+    <div class="addItems">
+      <div class="bothRange">
+        <span class="tit">{{ sponsor.name }}</span>
+        <a *ngIf="sponsor && sponsor.booth" routerLink="{{ sponsor.booth }}"
+          ><span class="flag"> {{ sponsor.booth }}</span></a
+        >
+      </div>
       <button type="button" class="bookmark">bookmark</button>
     </div>
-  </div>
-  <div class="group_whiteBox">
-    <p class="paragraph_blue">COMPANY DESCRIPTION</p>
-    <div>{{ sponsor.description }}</div>
-  </div>
-  <div
-    class="group_whiteBox"
-    *ngIf="sponsor && sponsor.session_list && sponsor.session_list.length > 0"
-  >
-    <p class="paragraph_blue">SPONSORED SESSION</p>
-    <ul class="styleBox">
-      <li *ngFor="let session of sponsor.session_list">
-        <a class="full" routerLink="/programs/{{ session.id }}">
-          <p class="info time">
-            {{ session.start_time | date: 'EE dd MMMM, hh:mma' }} ~{{
-              session.end_time | date: 'hh:mma'
-            }}
-          </p>
-          <p class="title">{{ session.name }}</p>
-        </a>
-      </li>
-    </ul>
+    <div class="group_whiteBox">
+      <dl>
+        <dt><span class="tit">Company Description</span></dt>
+        <dd>
+          <div class="writtenPanel">
+            <p class="paragraph">{{ sponsor.description }}</p>
+          </div>
+        </dd>
+        <dt><span class="tit">Sponsored Session</span></dt>
+        <dd>
+          <ul
+            class="styleBox fewLine"
+            *ngIf="
+              sponsor &&
+                sponsor.session_list &&
+                sponsor.session_list.length > 0;
+              else noResult
+            "
+          >
+            <li *ngFor="let session of sponsor.session_list">
+              <a routerLink="/programs/{{ session.id }}" class="full">
+                <span class="title">{{ session.name }}</span>
+                <p class="info time">
+                  {{ session.start_time | date: 'EE dd MMMM, hh:mma' }} ~{{
+                    session.end_time | date: 'hh:mma'
+                  }}
+                </p>
+              </a>
+            </li>
+          </ul>
+          <ng-template #noResult>
+            <div class="writtenPanel">
+              <p class="paragraph center">No result found.</p>
+            </div>
+          </ng-template>
+        </dd>
+      </dl>
+    </div>
   </div>
 </section>

@@ -1,14 +1,41 @@
 <section class="body_contentsArea back_gray">
-  <dl class="list_default">
-    <ng-container *ngFor="let sponsor of sponsors">
-      <dt class="list_item addRight">
-        <a class="full" routerLink="/sponsors/{{ sponsor.id }}"
-          >{{ sponsor.name }}
-        </a>
-        <div class="divRight">
-          <span>{{ sponsor.booth }}</span>
-        </div>
-      </dt>
-    </ng-container>
-  </dl>
+  <ul class="fixed_scrolling">
+    <li><a href="#">A</a></li>
+    <li><a href="#">B</a></li>
+    <li><a href="#">C</a></li>
+    <li><a href="#">D</a></li>
+    <li><a href="#">E</a></li>
+    <li><a href="#">F</a></li>
+    <li><a href="#">G</a></li>
+    <li><a href="#">H</a></li>
+    <li><a href="#">I</a></li>
+    <li><a href="#">J</a></li>
+    <li><a href="#">K</a></li>
+    <li><a href="#">L</a></li>
+    <li><a href="#">M</a></li>
+    <li><a href="#">N</a></li>
+    <li><a href="#">O</a></li>
+    <li><a href="#">P</a></li>
+    <li><a href="#">Q</a></li>
+    <li><a href="#">R</a></li>
+    <li><a href="#" class="on">S</a></li>
+    <li><a href="#">T</a></li>
+    <li><a href="#">U</a></li>
+    <li><a href="#">V</a></li>
+    <li><a href="#">W</a></li>
+    <li><a href="#">X</a></li>
+    <li><a href="#">Y</a></li>
+    <li><a href="#">Z</a></li>
+    <li><a href="#">#</a></li>
+  </ul>
+
+  <ul class="list_default">
+    <li class="addItems" *ngFor="let sponsor of sponsors">
+      <a routerLink="/sponsors/{{ sponsor.id }}" class="bothRange">
+        <span class="tit">{{ sponsor.name }}</span>
+        <span class="flag">{{ sponsor.booth }}</span>
+      </a>
+      <button type="button" class="bookmark on">bookmark</button>
+    </li>
+  </ul>
 </section>
