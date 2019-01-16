@@ -1,23 +1,64 @@
-<div class="container">
-  <ng-container *ngFor="let faculty_list of (filteredList | keyvalue)">
-    <p class="alert alert-info" style="margin: 10px 0 0">
-      {{ faculty_list.key }}
-    </p>
-    <ul class="list-group">
-      <li
-        class="list-group-item"
-        style="overflow: hidden;"
-        *ngFor="let faculty of faculty_list.value"
-        routerLink="/faculty/{{ faculty.id }}"
-      >
-        <img
-          src="{{ faculty.profile_url }}"
-          style="width: 50px; float: left;"
-        />
-        <p>{{ faculty.name }}</p>
-        <p>{{ faculty.organization }}</p>
-        <p>{{ faculty.nation }}</p>
-      </li>
+<section class="body_contentsArea back_gray">
+  <div class="search_wrap">
+    <input
+      type="search"
+      class="hiddenSearch"
+      placeholder="Search the program or faculty."
+    />
+    <button type="submit" class="btnSearch">Submit</button>
+  </div>
+  <div class="scrolling_wrap">
+    <ul class="fixed_scrolling">
+      <li><a href="#A">A</a></li>
+      <li><a href="#B">B</a></li>
+      <li><a href="#C">C</a></li>
+      <li><a href="#D">D</a></li>
+      <li><a href="#E">E</a></li>
+      <li><a href="#F">F</a></li>
+      <li><a href="#G">G</a></li>
+      <li><a href="#H">H</a></li>
+      <li><a href="#I">I</a></li>
+      <li><a href="#J">J</a></li>
+      <li><a href="#K">K</a></li>
+      <li><a href="#L">L</a></li>
+      <li><a href="#M">M</a></li>
+      <li><a href="#N">N</a></li>
+      <li><a href="#O">O</a></li>
+      <li><a href="#P">P</a></li>
+      <li><a href="#Q">Q</a></li>
+      <li><a href="#R">R</a></li>
+      <li><a href="#S">S</a></li>
+      <li><a href="#T">T</a></li>
+      <li><a href="#U">U</a></li>
+      <li><a href="#V">V</a></li>
+      <li><a href="#W">W</a></li>
+      <li><a href="#X">X</a></li>
+      <li><a href="#Y">Y</a></li>
+      <li><a href="#Z">Z</a></li>
     </ul>
-  </ng-container>
-</div>
+  </div>
+  <dl class="styleList_addRignt addTitle">
+    <ng-container *ngFor="let faculty_list of (filteredList | keyvalue)">
+      <span class="anchor" id=" {{ faculty_list.key }}"></span>
+      <dt>{{ faculty_list.key }}</dt>
+      <dd>
+        <ul class="styleList">
+          <li *ngFor="let faculty of faculty_list.value">
+            <a class="addLeft" routerLink="/faculty/{{ faculty.id }}">
+              <span class="photo">
+                <img
+                  src="{{ faculty.profile_url }}"
+                  *ngIf="faculty.profile_url"
+                />
+              </span>
+              <em class="subject">{{ faculty.name }}</em>
+              <p class="subtxt">{{ faculty.organization }}</p>
+              <p class="subtxt">{{ faculty.nation }}</p>
+            </a>
+            <button type="button" class="bookmark">bookmark</button>
+          </li>
+        </ul>
+      </dd>
+    </ng-container>
+  </dl>
+</section>
